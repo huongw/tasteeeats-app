@@ -45,18 +45,15 @@ export const Container = styled.div`
   width: 90vw;
   max-width: 1500px;
   margin: auto;
+  height: 100vh;
 `;
 
 export const Nav = styled.div`
-  padding: 4rem 0;
+  padding-top: 4rem;
   display: flex;
   align-items: center;
   margin: auto;
   position: relative;
-
-  svg {
-    font-size: 2rem;
-  }
 `;
 
 export const Logo = styled(Link)`
@@ -67,5 +64,5 @@ export const Logo = styled(Link)`
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
 `;

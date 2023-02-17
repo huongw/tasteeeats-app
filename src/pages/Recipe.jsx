@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
@@ -25,7 +26,12 @@ function Recipe() {
   }, [params.id]);
 
   return (
-    <Wrapper>
+    <MotionDiv
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div>
         <h2>{recipe.title}</h2>
         <img src={recipe.image} alt={recipe.title} />
@@ -47,7 +53,9 @@ function Recipe() {
           {active === "instructions" && (
             <>
               <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
-              <div dangerouslySetInnerHTML={{ __html: recipe.instructions }}></div>
+              <div
+                dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+              ></div>
             </>
           )}
           {active === "ingredients" && (
@@ -59,11 +67,11 @@ function Recipe() {
           )}
         </Info>
       </Card>
-    </Wrapper>
+    </MotionDiv>
   );
 }
 
-const Wrapper = styled.div`
+const MotionDiv = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
   height: 600px;
@@ -90,7 +98,7 @@ const Info = styled.div`
   }
 
   li {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 `;
 
