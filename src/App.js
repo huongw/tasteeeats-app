@@ -1,14 +1,21 @@
 import Home from "./pages/Home";
 import { Cuisine, Searched, Recipe, SearchBar, Category } from "./pages";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { GiKnifeFork } from "react-icons/gi";
+import { Container, Nav, Logo } from "./components/styles";
 
 function App() {
   return (
-    <Wrapper>
+    <Container>
       <Router>
-        <SearchBar/>
-        <Category/>
+        <Nav>
+          <Logo to={"/"}>
+            <GiKnifeFork />
+            TasteeEats
+          </Logo>
+          <SearchBar />
+        </Nav>
+        <Category />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cuisine/:type" element={<Cuisine />} />
@@ -16,14 +23,8 @@ function App() {
           <Route path="/recipe/:id" element={<Recipe />} />
         </Routes>
       </Router>
-    </Wrapper>
+    </Container>
   );
 }
-
-const Wrapper = styled.div`
-  width: 90vw;
-  max-width: 1500px;
-  margin: auto;
-`;
 
 export default App;

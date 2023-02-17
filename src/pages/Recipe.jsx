@@ -9,21 +9,20 @@ function Recipe() {
   let params = useParams();
 
   useEffect(() => {
-    // axios
-    //   .get(
-    //     `/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`,
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     localStorage.setItem("recipe", JSON.stringify(res.data));
-    //     setRecipe(res.data);
-    //     console.log("here")
-    //   });
-  }, []);
+    axios
+      .get(
+        `/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        localStorage.setItem("recipe", JSON.stringify(res.data));
+        setRecipe(res.data);
+      });
+  }, [params.id]);
 
   return (
     <Wrapper>

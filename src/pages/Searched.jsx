@@ -11,7 +11,7 @@ function Searched() {
   useEffect(() => {
     axios
       .get(
-        `/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${params.type}&query=${params.search}&number=12`,
+        `/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${params.search}&number=12`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function Searched() {
         }
       )
       .then((res) => setSearches(res.data.results));
-  }, []);
+  }, [params.search]);
 
   return (
     <MotionDiv

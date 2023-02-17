@@ -50,6 +50,7 @@ const Form = styled.form`
     left 0;
     transform: translate(100%, -50%);
     color: #fff;
+    font-size: initial;
   }
 `;
 

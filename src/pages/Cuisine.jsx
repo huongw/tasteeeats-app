@@ -19,7 +19,7 @@ function Cuisine() {
         }
       )
       .then((res) => setCuisines(res.data.results));
-  }, []);
+  }, [params.type]);
 
   return (
     <MotionDiv
