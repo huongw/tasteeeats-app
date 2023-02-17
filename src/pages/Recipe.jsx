@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Loader } from "./index";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
   const [active, setActive] = useState("instructions");
+  const [isLoading, setIsLoading] = useState(true);
+
   let params = useParams();
 
   useEffect(() => {
@@ -22,7 +25,9 @@ function Recipe() {
       .then((res) => {
         localStorage.setItem("recipe", JSON.stringify(res.data));
         setRecipe(res.data);
-      });
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [params.id]);
 
   return (
@@ -32,23 +37,28 @@ function Recipe() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {isLoading && <Loader />}
       <div>
         <h2>{recipe.title}</h2>
         <img src={recipe.image} alt={recipe.title} />
       </div>
       <Card>
-        <Button
-          className={active === "instructions" ? "active" : ""}
-          onClick={() => setActive("instructions")}
-        >
-          Instructions
-        </Button>
-        <Button
-          className={active === "ingredients" ? "active" : ""}
-          onClick={() => setActive("ingredients")}
-        >
-          Ingredients
-        </Button>
+        {Object.keys(recipe).length !== 0 && (
+          <div>
+            <Button
+              className={active === "instructions" ? "active" : ""}
+              onClick={() => setActive("instructions")}
+            >
+              Instructions
+            </Button>
+            <Button
+              className={active === "ingredients" ? "active" : ""}
+              onClick={() => setActive("ingredients")}
+            >
+              Ingredients
+            </Button>
+          </div>
+        )}
         <Info>
           {active === "instructions" && (
             <>

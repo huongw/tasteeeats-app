@@ -3,9 +3,11 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Loader } from "./index";
 
 function Cuisine() {
   const [cuisines, setCuisines] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
 
   useEffect(() => {
@@ -18,7 +20,9 @@ function Cuisine() {
           },
         }
       )
-      .then((res) => setCuisines(res.data.results));
+      .then((res) => setCuisines(res.data.results))
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [params.type]);
 
   return (
@@ -28,6 +32,8 @@ function Cuisine() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {isLoading && <Loader />}
+
       {cuisines.map((cuisine) => {
         return (
           <Card key={cuisine.id}>
