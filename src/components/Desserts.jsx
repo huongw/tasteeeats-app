@@ -61,6 +61,8 @@ function Desserts() {
 }
 
 const Wrapper = styled.div`
+  margin: 3rem 0;
+
   h3 {
     margin: 1rem 0;
   }
@@ -70,6 +72,7 @@ const Card = styled.div`
   border-radius: 25px;
   overflow: hidden;
   position: relative;
+  height: 100%;
 
   img {
     width: 100%;
