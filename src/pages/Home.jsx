@@ -1,11 +1,12 @@
 import React from 'react'
-import { MostPopular, Veggie } from './index';
+import { MostPopular, Veggie, Desserts } from './index';
 
 function Home() {
   return (
     <div>
       <MostPopular/>
       <Veggie/>
+      <Desserts/>
     </div>
   )
 }

@@ -5,19 +5,19 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-function Veggie() {
-  const [veggie, setVeggie] = useState([]);
+function Desserts() {
+  const [desserts, setDesserts] = useState([]);
 
   useEffect(() => {
-    const popularItems = localStorage.getItem("veggie");
+    const dessertItems = localStorage.getItem("desserts");
 
-    if (popularItems) {
-      setVeggie(JSON.parse(popularItems));
+    if (dessertItems) {
+      setDesserts(JSON.parse(dessertItems));
       return;
     }
     axios
       .get(
-        `/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegetarian`,
+        `/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=desserts`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -25,14 +25,14 @@ function Veggie() {
         }
       )
       .then((res) => {
-        localStorage.setItem("veggie", JSON.stringify(res.data.recipes));
-        setVeggie(res.data.recipes);
+        localStorage.setItem("desserts", JSON.stringify(res.data.recipes));
+        setDesserts(res.data.recipes);
       });
   }, []);
 
   return (
     <Wrapper>
-      <h3>Vegetarian</h3>
+      <h3>Desserts</h3>
       <Splide
         options={{
           perPage: 4,
@@ -42,7 +42,7 @@ function Veggie() {
           gap: "1rem",
         }}
       >
-        {veggie.map((recipe) => {
+        {desserts.map((recipe) => {
           return (
             <SplideSlide key={recipe.id}>
               <Link to={`/recipe/${recipe.id}`}>
@@ -97,4 +97,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
-export default Veggie;
+export default Desserts;
