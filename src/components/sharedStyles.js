@@ -17,6 +17,7 @@ export const Card = styled.div`
 
   img {
     width: 100%;
+    height: 100%;
   }
 
   p {
@@ -28,6 +29,7 @@ export const Card = styled.div`
     z-index: 2;
     margin: 1rem 0;
     text-align: center;
+    width: 98%;
   }
 `;
 
@@ -58,11 +60,18 @@ export const Nav = styled.div`
 
 export const Logo = styled(Link)`
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 2em;
   font-weight: 400;
   font-family: cursive;
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(50%);
+  top: 60%;
+
+  @media only screen and (max-width: 1200px) {
+    left: 50%;
+    top: -10%;
+    transform: translate(-50%, 50%);
+    width: 100%;
+    text-align: center;
+  }
 `;

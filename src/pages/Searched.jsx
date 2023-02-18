@@ -3,9 +3,11 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Loader } from "./index";
 
 function Searched() {
   const [searches, setSearches] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
 
   useEffect(() => {
@@ -18,7 +20,9 @@ function Searched() {
           },
         }
       )
-      .then((res) => setSearches(res.data.results));
+      .then((res) => setSearches(res.data.results))
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [params.search]);
 
   return (
@@ -28,6 +32,8 @@ function Searched() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {isLoading && <Loader />}
+
       {searches.map((cuisine) => {
         return (
           <Card key={cuisine.id}>

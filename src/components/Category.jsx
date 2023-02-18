@@ -1,31 +1,31 @@
-import {FaPizzaSlice, FaHamburger} from 'react-icons/fa';
-import {GiNoodles, GiChopsticks} from 'react-icons/gi';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import React from 'react';
+import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
+import { GiNoodles, GiChopsticks } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import React from "react";
 
 function Category() {
   return (
     <List>
       <StyledLink to={"/cuisine/Italian"}>
-        <FaPizzaSlice/>
+        <FaPizzaSlice />
         <h4>Italian</h4>
       </StyledLink>
       <StyledLink to={"/cuisine/American"}>
-        <FaHamburger/>
+        <FaHamburger />
         <h4>American</h4>
       </StyledLink>
       <StyledLink to={"/cuisine/Thai"}>
-        <GiNoodles/>
+        <GiNoodles />
         <h4>Thai</h4>
       </StyledLink>
       <StyledLink to={"/cuisine/Asian"}>
-        <GiChopsticks/>
+        <GiChopsticks />
         <h4>Asian</h4>
       </StyledLink>
     </List>
-  )
-};
+  );
+}
 
 const List = styled.div`
   display: flex;
@@ -41,32 +41,40 @@ const StyledLink = styled(NavLink)`
   border-radius: 50%;
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
-  width: 6em;
-  height: 6em;
   cursor: pointer;
+  width: 5em;
+  height: 5em;
   transform: scale(0.8);
-
-  @media only screen and (min-width: 600px) {
-    margin: 0 1em;
-  }
 
   h4 {
     color: #fff;
-    font-size: 0.8em;
+    font-size: 0.65em;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 0.8em;
+    }
   }
 
   svg {
     color: #fff;
     font-size: 1.5em;
+    margin-bottom: 0.3em;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 6em;
+    height: 6em;
+    margin: 0 1em;
   }
 
   &.active {
     background: linear-gradient(to right, #f27121, #e94057);
 
-    svg, h4 {
+    svg,
+    h4 {
       color: #fff;
     }
   }
 `;
 
-export default Category
+export default Category;

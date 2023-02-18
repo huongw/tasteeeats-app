@@ -18,7 +18,7 @@ function SearchBar() {
       <FaSearch />
       <input
         type="text"
-        placeholder="What's Cookin'?"
+        placeholder="What are you hungry for?"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
@@ -35,9 +35,9 @@ const Form = styled.form`
   input {
     border: none;
     background: linear-gradient(35deg, #494949, #313131);
-    font-size: 1.5rem;
+    font-size: 1.2em;
     color: #fff;
-    padding: 1rem 3rem;
+    padding: 1.2rem 3rem;
     border: none;
     border-radius: 1rem;
     outline: none;

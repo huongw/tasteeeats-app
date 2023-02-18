@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Loader } from "./index";
+import { Gradient } from "../components/sharedStyles";
 
 function Cuisine() {
   const [cuisines, setCuisines] = useState([]);
@@ -36,12 +37,13 @@ function Cuisine() {
 
       {cuisines.map((cuisine) => {
         return (
-          <Card key={cuisine.id}>
-            <Link to={`/recipe/${cuisine.id}`}>
+          <Link to={`/recipe/${cuisine.id}`}>
+            <Card key={cuisine.id}>
               <h4>{cuisine.title}</h4>
               <img src={cuisine.image} alt={cuisine.title} />
-            </Link>
-          </Card>
+              <Gradient />
+            </Card>
+          </Link>
         );
       })}
     </MotionDiv>
@@ -60,18 +62,22 @@ const MotionDiv = styled(motion.div)`
 `;
 
 const Card = styled.div`
-  max-width: 300px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
   height: 100%;
-
-  img {
-    width: 100%;
-    border-radius: 2rem;
-    object-fit: none;
-  }
+  margin: 2rem 0 1.2rem;
 
   h4 {
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1em .5em;
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 2;
   }
 `;
 

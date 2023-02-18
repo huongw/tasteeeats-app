@@ -103,7 +103,7 @@ const MotionDiv = styled(motion.div)`
 const Card = styled.div`
   width: 100%;
 
-  @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1301px) {
     padding: 0 2rem;
   }
 `;
@@ -120,7 +120,7 @@ const ImgWrapper = styled.div`
     width: 100%;
   }
 
-  @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1301px) {
     max-width: 600px;
 
     h2 {
