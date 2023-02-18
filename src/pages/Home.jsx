@@ -1,10 +1,10 @@
 import React from "react";
 import { MostPopular, Veggie, Desserts } from "./index";
-import { motion } from "framer-motion";
+import { HomeWrapper } from "../components/sharedStyles";
 
 function Home() {
   return (
-    <motion.div
+    <HomeWrapper
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -13,7 +13,7 @@ function Home() {
       <MostPopular />
       <Veggie />
       <Desserts />
-    </motion.div>
+    </HomeWrapper>
   );
 }
 
