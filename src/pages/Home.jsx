@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "./index";
 
-function Home() {
+function Home({ error, setError }) {
   const [popular, setPopular] = useState([]);
   const [veggie, setVeggie] = useState([]);
   const [desserts, setDesserts] = useState([]);
@@ -50,7 +50,7 @@ function Home() {
           setDesserts(res[2].data.recipes);
         })
       )
-      .catch((err) => console.error(err))
+      .catch((err) => setError("Oops, please try again later!"))
       .finally(() => {
         setIsLoading(false);
       });
@@ -64,10 +64,15 @@ function Home() {
       transition={{ duration: 0.5 }}
     >
       {isLoading && <Loader />}
+      {error && <p>{error}</p>}
 
-      <MostPopular popular={popular} isLoading={isLoading} />
-      <Veggie veggie={veggie} isLoading={isLoading} />
-      <Desserts desserts={desserts} isLoading={isLoading} />
+      {!error && (
+        <>
+          <MostPopular popular={popular} isLoading={isLoading} />
+          <Veggie veggie={veggie} isLoading={isLoading} />
+          <Desserts desserts={desserts} isLoading={isLoading} />
+        </>
+      )}
     </HomeWrapper>
   );
 }

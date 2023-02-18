@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Loader } from "./index";
 import { Gradient } from "../components/sharedStyles";
 
-function Cuisine() {
+function Cuisine({ error, setError }) {
   const [cuisines, setCuisines] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
@@ -22,7 +22,7 @@ function Cuisine() {
         }
       )
       .then((res) => setCuisines(res.data.results))
-      .catch((err) => console.error(err))
+      .catch((err) => setError("Oops, please try again later!"))
       .finally(() => setIsLoading(false));
   }, [params.type]);
 
@@ -34,7 +34,7 @@ function Cuisine() {
       transition={{ duration: 0.5 }}
     >
       {isLoading && <Loader />}
-
+      {error && <p>{error}</p>}
       {cuisines.map((cuisine) => {
         return (
           <Card key={cuisine.id}>
@@ -67,7 +67,7 @@ const Card = styled.div`
   position: relative;
   height: 100%;
   margin: 2rem 0 1.2rem;
-  
+
   @media only screen and (max-width: 790px) {
     margin: 0rem 0 1.2rem;
     width: 100%;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Loader } from "./index";
 import { Gradient } from "../components/sharedStyles";
 
-function Searched() {
+function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
@@ -22,7 +22,7 @@ function Searched() {
         }
       )
       .then((res) => setSearches(res.data.results))
-      .catch((err) => console.error(err))
+      .catch((err) => setError("Oops, please try again later!"))
       .finally(() => setIsLoading(false));
   }, [params.search]);
 
@@ -34,6 +34,7 @@ function Searched() {
       transition={{ duration: 0.5 }}
     >
       {isLoading && <Loader />}
+      {error && <p>{error}</p>}
 
       {searches.map((cuisine) => {
         return (
@@ -41,7 +42,7 @@ function Searched() {
             <Link to={`/recipe/${cuisine.id}`}>
               <h4>{cuisine.title}</h4>
               <img src={cuisine.image} alt={cuisine.title} />
-              <Gradient/>
+              <Gradient />
             </Link>
           </Card>
         );
@@ -67,7 +68,7 @@ const Card = styled.div`
   position: relative;
   height: 100%;
   margin: 2rem 0 1.2rem;
-  
+
   @media only screen and (max-width: 790px) {
     margin: 0rem 0 1.2rem;
     width: 100%;

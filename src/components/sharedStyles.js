@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const HomeWrapper = styled(motion.div)`
+  text-align: center;
+
   @media only screen and (max-width: 501px) {
     padding-bottom: 50px;
   }
