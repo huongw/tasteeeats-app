@@ -36,7 +36,7 @@ function MostPopular() {
           arrows: true,
           pagination: false,
           drag: "free",
-          gap: "1rem",
+          gap: "1em",
           breakpoints: {
             1050: {
               perPage: 2,
