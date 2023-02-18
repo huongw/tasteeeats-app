@@ -1,6 +1,6 @@
 import React from "react";
 import { MostPopular, Veggie, Desserts } from "./index";
-import { HomeWrapper } from "../components/sharedStyles";
+import { HomeWrapper, Error } from "../components/sharedStyles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "./index";
@@ -22,16 +22,16 @@ function Home({ error, setError }) {
       `/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=desserts`
     );
 
-    const popularItems = localStorage.getItem("popular");
-    const veggieItems = localStorage.getItem("veggie");
-    const dessertItems = localStorage.getItem("desserts");
+    // const popularItems = localStorage.getItem("popular");
+    // const veggieItems = localStorage.getItem("veggie");
+    // const dessertItems = localStorage.getItem("desserts");
 
-    if (popularItems && veggieItems && dessertItems) {
-      setPopular(JSON.parse(popularItems));
-      setVeggie(JSON.parse(veggieItems));
-      setDesserts(JSON.parse(dessertItems));
-      return;
-    }
+    // if (popularItems && veggieItems && dessertItems) {
+    //   setPopular(JSON.parse(popularItems));
+    //   setVeggie(JSON.parse(veggieItems));
+    //   setDesserts(JSON.parse(dessertItems));
+    //   return;
+    // }
 
     setIsLoading(true);
     axios
@@ -42,9 +42,9 @@ function Home({ error, setError }) {
       })
       .then(
         axios.spread((...res) => {
-          localStorage.setItem("popular", JSON.stringify(res[0].data.recipes));
-          localStorage.setItem("veggie", JSON.stringify(res[1].data.recipes));
-          localStorage.setItem("desserts", JSON.stringify(res[2].data.recipes));
+          // localStorage.setItem("popular", JSON.stringify(res[0].data.recipes));
+          // localStorage.setItem("veggie", JSON.stringify(res[1].data.recipes));
+          // localStorage.setItem("desserts", JSON.stringify(res[2].data.recipes));
           setPopular(res[0].data.recipes);
           setVeggie(res[1].data.recipes);
           setDesserts(res[2].data.recipes);
@@ -57,23 +57,28 @@ function Home({ error, setError }) {
   }, []);
 
   return (
-    <HomeWrapper
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
       {isLoading && <Loader />}
-      {error && <p>{error}</p>}
-
-      {!error && (
-        <>
-          <MostPopular popular={popular} isLoading={isLoading} />
-          <Veggie veggie={veggie} isLoading={isLoading} />
-          <Desserts desserts={desserts} isLoading={isLoading} />
-        </>
+      {error && (
+        <Error>
+          <strong>{error}</strong>
+        </Error>
       )}
-    </HomeWrapper>
+      <HomeWrapper
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+      >
+        {!error && (
+          <>
+            <MostPopular popular={popular} isLoading={isLoading} />
+            <Veggie veggie={veggie} isLoading={isLoading} />
+            <Desserts desserts={desserts} isLoading={isLoading} />
+          </>
+        )}
+      </HomeWrapper>
+    </>
   );
 }
 

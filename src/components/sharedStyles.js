@@ -12,11 +12,14 @@ export const Wrapper = styled.div`
 `;
 
 export const HomeWrapper = styled(motion.div)`
-  text-align: center;
-
   @media only screen and (max-width: 501px) {
+    text-align: center;
     padding-bottom: 50px;
   }
+`;
+
+export const Error = styled.p`
+  text-align: center;
 `;
 
 export const Card = styled.div`

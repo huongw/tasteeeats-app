@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Loader } from "./index";
-import { Gradient } from "../components/sharedStyles";
+import { Gradient, Error } from "../components/sharedStyles";
 
 function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
@@ -27,27 +27,36 @@ function Searched({ error, setError }) {
   }, [params.search]);
 
   return (
-    <MotionDiv
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
       {isLoading && <Loader />}
-      {error && <p>{error}</p>}
-
-      {searches.map((cuisine) => {
-        return (
-          <Card key={cuisine.id}>
-            <Link to={`/recipe/${cuisine.id}`}>
-              <h4>{cuisine.title}</h4>
-              <img src={cuisine.image} alt={cuisine.title} />
-              <Gradient />
-            </Link>
-          </Card>
-        );
-      })}
-    </MotionDiv>
+      {error && (
+        <Error>
+          <strong>{error}</strong>
+        </Error>
+      )}
+      <MotionDiv
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {!error && (
+          <>
+            {searches.map((cuisine) => {
+              return (
+                <Card key={cuisine.id}>
+                  <Link to={`/recipe/${cuisine.id}`}>
+                    <h4>{cuisine.title}</h4>
+                    <img src={cuisine.image} alt={cuisine.title} />
+                    <Gradient />
+                  </Link>
+                </Card>
+              );
+            })}
+          </>
+        )}
+      </MotionDiv>
+    </>
   );
 }
 
