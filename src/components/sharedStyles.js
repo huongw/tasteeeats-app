@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  margin: 2rem 0 0;
-
   h3 {
-    margin: 1rem 0 0.5rem;
+    margin: 1rem 0 0;
     font-size: 2em;
   }
 `;
