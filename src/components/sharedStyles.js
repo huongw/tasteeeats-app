@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   margin: 2rem 0 0;
 
   h3 {
-    margin: 1rem 0;
+    margin: 1rem 0 .5rem;
+    font-size: 2em;
   }
 `;
 
