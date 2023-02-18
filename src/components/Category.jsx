@@ -39,22 +39,25 @@ const StyledLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin: 0 1rem;
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
-  width: 6rem;
-  height: 6rem;
+  width: 6em;
+  height: 6em;
   cursor: pointer;
   transform: scale(0.8);
 
+  @media only screen and (min-width: 600px) {
+    margin: 0 1em;
+  }
+
   h4 {
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 0.8em;
   }
 
   svg {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   &.active {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient } from "./styles";
+import { Wrapper, Card, Gradient } from "./sharedStyles";
 
 function Veggie() {
   const [veggie, setVeggie] = useState([]);

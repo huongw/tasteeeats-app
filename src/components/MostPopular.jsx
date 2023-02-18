@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient } from "./styles";
+import { Wrapper, Card, Gradient } from "./sharedStyles";
 
 function MostPopular() {
   const [popular, setPopular] = useState([]);

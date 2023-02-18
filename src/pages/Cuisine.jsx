@@ -55,7 +55,7 @@ const MotionDiv = styled(motion.div)`
   gap: 1rem;
   width: 90%;
   max-width: 1500px;
-  margin: auto;
+  margin: 2rem auto 0;
   flex-wrap: wrap;
 `;
 

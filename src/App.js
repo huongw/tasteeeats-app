@@ -1,8 +1,8 @@
 import Pages from "./pages/Pages";
-import { Container } from "./components/styles";
+import { Container } from "./components/sharedStyles";
 import { BrowserRouter as Router } from "react-router-dom";
 import { GiKnifeFork } from "react-icons/gi";
-import { Nav, Logo } from "./components/styles";
+import { Nav, Logo } from "./components/sharedStyles";
 import { SearchBar, Category } from "./pages";
 
 function App() {
