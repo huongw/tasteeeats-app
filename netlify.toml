@@ -9,4 +9,4 @@
   publish = "build/"
 
 [build.environment]
-  REACT_APP_API_BASE_URL = "https://api.spoonacular.com/recipes"
+  REACT_APP_BASE_URL = "https://api.spoonacular.com/recipes"
