@@ -24,7 +24,7 @@ function Cuisine({ error, setError }) {
       .then((res) => setCuisines(res.data.results))
       .catch((err) => setError("Oops, please try again later!"))
       .finally(() => setIsLoading(false));
-  }, [params.type]);
+  }, [params.type, setError]);
 
   return (
     <>

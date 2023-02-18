@@ -22,17 +22,6 @@ function Home({ error, setError }) {
       `/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=desserts`
     );
 
-    // const popularItems = localStorage.getItem("popular");
-    // const veggieItems = localStorage.getItem("veggie");
-    // const dessertItems = localStorage.getItem("desserts");
-
-    // if (popularItems && veggieItems && dessertItems) {
-    //   setPopular(JSON.parse(popularItems));
-    //   setVeggie(JSON.parse(veggieItems));
-    //   setDesserts(JSON.parse(dessertItems));
-    //   return;
-    // }
-
     setIsLoading(true);
     axios
       .all([popularURL, veggieURL, dessertURL], {
@@ -42,9 +31,6 @@ function Home({ error, setError }) {
       })
       .then(
         axios.spread((...res) => {
-          // localStorage.setItem("popular", JSON.stringify(res[0].data.recipes));
-          // localStorage.setItem("veggie", JSON.stringify(res[1].data.recipes));
-          // localStorage.setItem("desserts", JSON.stringify(res[2].data.recipes));
           setPopular(res[0].data.recipes);
           setVeggie(res[1].data.recipes);
           setDesserts(res[2].data.recipes);
@@ -54,7 +40,7 @@ function Home({ error, setError }) {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [setError]);
 
   return (
     <>

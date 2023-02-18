@@ -24,7 +24,7 @@ function Searched({ error, setError }) {
       .then((res) => setSearches(res.data.results))
       .catch((err) => setError("Oops, please try again later!"))
       .finally(() => setIsLoading(false));
-  }, [params.search]);
+  }, [params.search, setError]);
 
   return (
     <>
