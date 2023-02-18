@@ -37,13 +37,13 @@ function Cuisine() {
 
       {cuisines.map((cuisine) => {
         return (
-          <Link to={`/recipe/${cuisine.id}`}>
-            <Card key={cuisine.id}>
+          <Card key={cuisine.id}>
+            <Link to={`/recipe/${cuisine.id}`}>
               <h4>{cuisine.title}</h4>
               <img src={cuisine.image} alt={cuisine.title} />
               <Gradient />
-            </Card>
-          </Link>
+            </Link>
+          </Card>
         );
       })}
     </MotionDiv>
@@ -67,10 +67,19 @@ const Card = styled.div`
   position: relative;
   height: 100%;
   margin: 2rem 0 1.2rem;
+  
+  @media only screen and (max-width: 790px) {
+    margin: 0rem 0 1.2rem;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
 
   h4 {
     text-align: center;
-    padding: 1em .5em;
+    padding: 1em 0.5em;
     position: absolute;
     color: #fff;
     bottom: 0;

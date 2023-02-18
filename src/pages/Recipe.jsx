@@ -87,11 +87,14 @@ const MotionDiv = styled(motion.div)`
   width: 90%;
   max-width: 1500px;
   margin: auto;
-  padding: 5rem 0;
 
   .active {
     background: linear-gradient(35deg, #494949, #313131);
     color: #fff;
+  }
+
+  @media only screen and (min-width: 1300px) {
+    padding: 5rem 0;
   }
 
   @media only screen and (max-width: 1300px) {
