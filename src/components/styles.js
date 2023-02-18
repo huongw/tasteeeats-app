@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
-  margin: 3rem 0;
+  margin: 2rem 0 0;
 
   h3 {
     margin: 1rem 0;

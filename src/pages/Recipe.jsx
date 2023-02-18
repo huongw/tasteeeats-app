@@ -38,13 +38,13 @@ function Recipe() {
       transition={{ duration: 0.5 }}
     >
       {isLoading && <Loader />}
-      <div>
+      <ImgWrapper>
         <h2>{recipe.title}</h2>
         <img src={recipe.image} alt={recipe.title} />
-      </div>
+      </ImgWrapper>
       <Card>
         {Object.keys(recipe).length !== 0 && (
-          <div>
+          <>
             <Button
               className={active === "instructions" ? "active" : ""}
               onClick={() => setActive("instructions")}
@@ -57,7 +57,7 @@ function Recipe() {
             >
               Ingredients
             </Button>
-          </div>
+          </>
         )}
         <Info>
           {active === "instructions" && (
@@ -84,16 +84,49 @@ function Recipe() {
 const MotionDiv = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
-  height: 600px;
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  padding: 5rem 0;
 
   .active {
     background: linear-gradient(35deg, #494949, #313131);
     color: #fff;
   }
+
+  @media only screen and (max-width: 1300px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
-  width: 50%;
+  width: 100%;
+
+  @media only screen and (min-width: 1300px) {
+    padding: 0 2rem;
+  }
+`;
+
+const ImgWrapper = styled.div`
+  width: 100%;
+
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 1300px) {
+    max-width: 600px;
+
+    h2 {
+      text-align: left;
+    }
+  }
 `;
 
 const Info = styled.div`
@@ -103,22 +136,26 @@ const Info = styled.div`
     margin: 1rem 0;
   }
 
-  ol {
-    padding-left: 1.5rem;
-  }
-
   li {
     margin: 0.5rem 0;
+    list-style: none;
   }
 `;
 
 const Button = styled.button`
-  padding: 1rem 2rem;
+  padding: 1em 2em;
   color: #313131;
   background: #fff;
   border: 2px solid #000;
-  margin-right: 2rem;
+  margin-right: 2em;
   font-weight: 600;
+  cursor: pointer;
+  margin-top: 1em;
+
+  @media only screen and (max-width: 500px) {
+    margin-right: 1em;
+    padding: 1em;
+  }
 `;
 
 export default Recipe;
