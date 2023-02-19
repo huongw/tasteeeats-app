@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient } from "./sharedStyles";
+import { Wrapper, Card, Gradient, imageMotion2 } from "./sharedStyles";
+import { motion } from "framer-motion";
 
 function MostPopular({ popular, isLoading }) {
   return (
@@ -30,9 +31,13 @@ function MostPopular({ popular, isLoading }) {
               return (
                 <SplideSlide key={recipe.id}>
                   <Link to={`/recipe/${recipe.id}`}>
-                    <Card>
+                    <Card whileHover="hover" initial="rest" animate="rest">
                       <p>{recipe.title}</p>
-                      <img src={recipe.image} alt={recipe.title} />
+                      <motion.img
+                        src={recipe.image}
+                        alt={recipe.title}
+                        variants={imageMotion2}
+                      />
                       <Gradient />
                     </Card>
                   </Link>

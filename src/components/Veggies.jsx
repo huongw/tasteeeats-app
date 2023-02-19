@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient } from "./sharedStyles";
+import { Wrapper, Card, Gradient, imageMotion } from "./sharedStyles";
+import { motion } from "framer-motion";
 
 function Veggie({ veggie, isLoading }) {
   return (
@@ -23,7 +24,7 @@ function Veggie({ veggie, isLoading }) {
                 800: {
                   perPage: 2,
                 },
-                520: {
+                600: {
                   perPage: 1,
                 },
               },
@@ -33,9 +34,13 @@ function Veggie({ veggie, isLoading }) {
               return (
                 <SplideSlide key={recipe.id}>
                   <Link to={`/recipe/${recipe.id}`}>
-                    <Card>
+                    <Card whileHover="hover" initial="rest" animate="rest">
                       <p>{recipe.title}</p>
-                      <img src={recipe.image} alt={recipe.title} />
+                      <motion.img
+                        src={recipe.image}
+                        alt={recipe.title}
+                        variants={imageMotion}
+                      />
                       <Gradient />
                     </Card>
                   </Link>

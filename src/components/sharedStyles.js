@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  margin-bottom: 3rem;
+  margin: 2rem 0;
 
   h3 {
     margin: 1rem 0 0;
@@ -19,16 +20,41 @@ export const Error = styled.p`
   text-align: center;
 `;
 
-export const Card = styled.div`
+export const imageMotion = {
+  rest: {
+    width: "100%",
+    height: "100%",
+    transform: "scale(1)",
+  },
+  hover: {
+    transform: "scale(1.1)",
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
+};
+
+export const imageMotion2 = {
+  rest: {
+    transform: "scale(1)",
+  },
+  hover: {
+    transform: "scale(1.1)",
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
+};
+
+export const Card = styled(motion.div)`
   border-radius: 15px;
   overflow: hidden;
   position: relative;
   height: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 
   p {
     position: absolute;
@@ -61,7 +87,7 @@ export const Container = styled.div`
   background-color: #efefef;
   padding: 0 0.5rem;
 
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 400px) {
     padding: 0 1rem;
   }
   @media only screen and (min-width: 1051px) {

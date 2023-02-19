@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Loader } from "./index";
-import { Gradient, Error } from "../components/sharedStyles";
+import { Gradient, Error, imageMotion } from "../components/sharedStyles";
 
 function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
@@ -44,10 +44,19 @@ function Searched({ error, setError }) {
           <>
             {searches.map((cuisine) => {
               return (
-                <Card key={cuisine.id}>
+                <Card
+                  key={cuisine.id}
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
+                >
                   <Link to={`/recipe/${cuisine.id}`}>
                     <h4>{cuisine.title}</h4>
-                    <img src={cuisine.image} alt={cuisine.title} />
+                    <motion.img
+                      src={cuisine.image}
+                      alt={cuisine.title}
+                      variants={imageMotion}
+                    />
                     <Gradient />
                   </Link>
                 </Card>
@@ -68,24 +77,21 @@ const MotionDiv = styled(motion.div)`
   max-width: 1500px;
   margin: 2rem auto 0;
   flex-wrap: wrap;
-  
-  @media only screen and (max-width: 600px) {
+
+  @media only screen and (max-width: 400px) {
     width: 100%;
   }
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   border-radius: 15px;
   overflow: hidden;
   position: relative;
   height: 100%;
-  margin: 0 .5rem 1.2rem;
+  margin: 0 0.5rem 1.2rem;
 
-  @media only screen and (max-width: 825px) {
-
-    img {
-      width: 100%;
-    }
+  @media only screen and (max-width: 845px) {
+    width: 90%;
   }
 
   h4 {
