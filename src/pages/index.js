@@ -6,4 +6,5 @@ export { default as SearchBar } from "../components/SearchBar";
 export { default as Cuisine } from "./Cuisine";
 export { default as Recipe } from "./Recipe";
 export { default as Searched } from "./Searched";
+export { default as Home } from "./Home";
 export { default as Loader } from "../components/Loader/Loader";

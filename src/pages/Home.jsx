@@ -1,9 +1,9 @@
-import React from "react";
-import { MostPopular, Veggie, Desserts } from "./index";
-import { HomeWrapper, Error } from "../components/sharedStyles";
+import { MostPopular, Veggie, Desserts, Loader } from "./index";
+import { Error } from "../components/sharedStyles";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Loader } from "./index";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 function Home({ error, setError }) {
   const [popular, setPopular] = useState([]);
@@ -67,5 +67,13 @@ function Home({ error, setError }) {
     </>
   );
 }
+
+const HomeWrapper = styled(motion.div)`
+  padding: 0 1rem;
+
+  @media only screen and (max-width: 400px) {
+    padding: 0 0.5rem;
+  }
+`;
 
 export default Home;

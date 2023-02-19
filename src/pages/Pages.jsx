@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Cuisine, Searched, Recipe } from "./index";
-import Home from "./Home";
+import { Cuisine, Searched, Recipe, Home } from "./index";
 import { useState } from "react";
 
 function Pages() {
@@ -10,9 +9,15 @@ function Pages() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home error={error} setError={setError}/>} />
-        <Route path="/cuisine/:type" element={<Cuisine error={error} setError={setError}/>} />
-        <Route path="/searched/:search" element={<Searched error={error} setError={setError}/>} />
+        <Route path="/" element={<Home error={error} setError={setError} />} />
+        <Route
+          path="/cuisine/:type"
+          element={<Cuisine error={error} setError={setError} />}
+        />
+        <Route
+          path="/searched/:search"
+          element={<Searched error={error} setError={setError} />}
+        />
         <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
     </AnimatePresence>

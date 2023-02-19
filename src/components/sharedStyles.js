@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
   margin-bottom: 3rem;
@@ -12,14 +11,6 @@ export const Wrapper = styled.div`
     @media only screen and (max-width: 501px) {
       font-size: 1.3em;
     }
-  }
-`;
-
-export const HomeWrapper = styled(motion.div)`
-  padding: 0 1rem;
-
-  @media only screen and (max-width: 400px) {
-    padding: 0 0.5rem;
   }
 `;
 
