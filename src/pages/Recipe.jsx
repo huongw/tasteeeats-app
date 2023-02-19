@@ -4,6 +4,9 @@ import axios from "axios";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Loader } from "./index";
+import { FaUtensils } from "react-icons/fa";
+import { TfiTimer } from "react-icons/tfi";
+import { GiGrain } from "react-icons/gi";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
@@ -11,6 +14,8 @@ function Recipe() {
   const [isLoading, setIsLoading] = useState(true);
 
   let params = useParams();
+
+  console.log(recipe);
 
   useEffect(() => {
     axios
@@ -39,46 +44,65 @@ function Recipe() {
     >
       {isLoading && <Loader />}
       <h2>{recipe.title}</h2>
-      <Flex>
-        <ImgWrapper>
-          <img src={recipe.image} alt={recipe.title} />
-        </ImgWrapper>
-        <Card>
-          {Object.keys(recipe).length !== 0 && (
-            <>
-              <Button
-                className={active === "instructions" ? "active" : ""}
-                onClick={() => setActive("instructions")}
-              >
-                Instructions
-              </Button>
-              <Button
-                className={active === "ingredients" ? "active" : ""}
-                onClick={() => setActive("ingredients")}
-              >
-                Ingredients
-              </Button>
-            </>
-          )}
-          <Info>
-            {active === "instructions" && (
-              <>
-                <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
-                <div
-                  dangerouslySetInnerHTML={{ __html: recipe.instructions }}
-                ></div>
-              </>
-            )}
-            {active === "ingredients" && (
-              <ul>
-                {recipe.extendedIngredients.map((ingredient) => {
-                  return <li key={ingredient.id}>{ingredient.original}</li>;
-                })}
-              </ul>
-            )}
-          </Info>
-        </Card>
-      </Flex>
+      {!isLoading && (
+        <>
+          <Flex>
+            <ImgWrapper>
+              <img src={recipe.image} alt={recipe.title} />
+              <SpanWrapper>
+                <span>
+                  <TfiTimer /> {recipe.readyInMinutes} Minutes
+                </span>
+                <span>
+                  <FaUtensils /> {recipe.servings} Servings
+                </span>
+                <span>
+                  {recipe.glutenFree && (
+                    <>
+                      <GiGrain /> {recipe.glutenFree} Gluten Free
+                    </>
+                  )}
+                </span>
+              </SpanWrapper>
+            </ImgWrapper>
+            <Card>
+              {Object.keys(recipe).length !== 0 && (
+                <>
+                  <Button
+                    className={active === "instructions" ? "active" : ""}
+                    onClick={() => setActive("instructions")}
+                  >
+                    Instructions
+                  </Button>
+                  <Button
+                    className={active === "ingredients" ? "active" : ""}
+                    onClick={() => setActive("ingredients")}
+                  >
+                    Ingredients
+                  </Button>
+                </>
+              )}
+              <Info>
+                {active === "instructions" && (
+                  <>
+                    <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+                    ></div>
+                  </>
+                )}
+                {active === "ingredients" && (
+                  <ul>
+                    {recipe.extendedIngredients.map((ingredient) => {
+                      return <li key={ingredient.id}>{ingredient.original}</li>;
+                    })}
+                  </ul>
+                )}
+              </Info>
+            </Card>
+          </Flex>
+        </>
+      )}
     </MotionDiv>
   );
 }
@@ -113,6 +137,14 @@ const MotionDiv = styled(motion.div)`
 
   @media only screen and (min-width: 1301px) {
     padding: 2em 0;
+  }
+`;
+
+const SpanWrapper = styled.div`
+  margin-top: 0.5em;
+
+  span {
+    padding-right: 1em;
   }
 `;
 
