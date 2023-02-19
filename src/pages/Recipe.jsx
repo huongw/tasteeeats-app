@@ -150,6 +150,8 @@ const MotionDiv = styled(motion.div)`
 
 const SpanWrapper = styled.div`
   margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
 
   span {
     padding-right: 1em;
