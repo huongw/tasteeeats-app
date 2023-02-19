@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
+  margin-bottom: 3rem;
+
   h3 {
     margin: 1rem 0 0;
     font-size: 1.5em;
@@ -16,13 +18,8 @@ export const Wrapper = styled.div`
 export const HomeWrapper = styled(motion.div)`
   padding: 0 1rem;
 
-  @media only screen and (max-width: 520px) {
-    text-align: center;
-    padding-bottom: 50px;
-  }
-  
   @media only screen and (max-width: 400px) {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
 `;
 
