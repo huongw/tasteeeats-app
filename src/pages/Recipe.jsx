@@ -93,7 +93,7 @@ const MotionDiv = styled(motion.div)`
     color: #fff;
   }
 
-  @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1301px) {
     padding: 5rem 0;
   }
 
