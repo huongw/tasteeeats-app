@@ -50,7 +50,7 @@ function Home({ error, setError }) {
           <strong>{error}</strong>
         </Error>
       )}
-      <HomeWrapper
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -63,17 +63,9 @@ function Home({ error, setError }) {
             <Desserts desserts={desserts} isLoading={isLoading} />
           </>
         )}
-      </HomeWrapper>
+      </motion.div>
     </>
   );
 }
-
-const HomeWrapper = styled(motion.div)`
-  padding: 0 1rem;
-
-  @media only screen and (max-width: 400px) {
-    padding: 0 0.5rem;
-  }
-`;
 
 export default Home;

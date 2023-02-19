@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  margin: 2rem 0;
+  margin: 2rem auto;
+  width: 90%;
 
   h3 {
     margin: 1rem 0 0;
@@ -85,11 +86,7 @@ export const Container = styled.div`
   margin: auto;
   min-height: 100vh;
   background-color: #efefef;
-  padding: 0 0.5rem;
-
-  @media only screen and (min-width: 400px) {
-    padding: 0 1rem;
-  }
+  
   @media only screen and (min-width: 1051px) {
     padding: 0 5rem;
   }

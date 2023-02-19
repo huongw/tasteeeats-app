@@ -43,7 +43,7 @@ const Form = styled.form`
     outline: none;
     width: 100%;
     
-    @media only screen and (min-width: 400px) {
+    @media only screen and (min-width: 401px) {
       font-size: 1.2em;
     }
   }
