@@ -42,26 +42,34 @@ function Searched({ error, setError }) {
       >
         {!error && (
           <>
-            {searches.map((cuisine) => {
-              return (
-                <Card
-                  key={cuisine.id}
-                  whileHover="hover"
-                  initial="rest"
-                  animate="rest"
-                >
-                  <Link to={`/recipe/${cuisine.id}`}>
-                    <h4>{cuisine.title}</h4>
-                    <motion.img
-                      src={cuisine.image}
-                      alt={cuisine.title}
-                      variants={imageMotion}
-                    />
-                    <Gradient />
-                  </Link>
-                </Card>
-              );
-            })}
+            {searches.length === 0 ? (
+              <SearchErrorMsg>
+                {`Sorry, there are no search results for "${params.search}"`}
+              </SearchErrorMsg>
+            ) : (
+              <>
+                {searches.map((cuisine) => {
+                  return (
+                    <Card
+                      key={cuisine.id}
+                      whileHover="hover"
+                      initial="rest"
+                      animate="rest"
+                    >
+                      <Link to={`/recipe/${cuisine.id}`}>
+                        <h4>{cuisine.title}</h4>
+                        <motion.img
+                          src={cuisine.image}
+                          alt={cuisine.title}
+                          variants={imageMotion}
+                        />
+                        <Gradient />
+                      </Link>
+                    </Card>
+                  );
+                })}
+              </>
+            )}
           </>
         )}
       </MotionDiv>
@@ -101,6 +109,10 @@ const Card = styled(motion.div)`
     width: 100%;
     z-index: 2;
   }
+`;
+
+const SearchErrorMsg = styled.p`
+  text-align: center;
 `;
 
 export default Searched;
