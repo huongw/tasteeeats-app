@@ -27,7 +27,7 @@ export const Error = styled.p`
 `;
 
 export const Card = styled.div`
-  border-radius: 25px;
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
   height: 100%;

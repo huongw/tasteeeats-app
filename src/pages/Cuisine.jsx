@@ -73,7 +73,7 @@ const MotionDiv = styled(motion.div)`
 `;
 
 const Card = styled.div`
-  border-radius: 25px;
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
   height: 100%;
