@@ -55,7 +55,7 @@ function Recipe() {
                     <TfiTimer /> {recipe.readyInMinutes} Minutes
                   </span>
                   <span>
-                    <FaUtensils /> {recipe.servings} Servings
+                    <FaUtensils /> {recipe.servings} {recipe.servings > 1 ? "Servings" : "Serving"}
                   </span>
                   <span>
                     {recipe.glutenFree && (
