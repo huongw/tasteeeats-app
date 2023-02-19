@@ -150,10 +150,6 @@ const ImgWrapper = styled.div`
 
   @media only screen and (min-width: 1301px) {
     max-width: 600px;
-
-    h2 {
-      text-align: left;
-    }
   }
 `;
 
