@@ -23,7 +23,7 @@ function Desserts({ desserts, isLoading }) {
                 800: {
                   perPage: 2,
                 },
-                500: {
+                520: {
                   perPage: 1,
                 },
               },

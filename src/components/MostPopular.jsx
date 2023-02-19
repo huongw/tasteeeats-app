@@ -20,7 +20,7 @@ function MostPopular({ popular, isLoading }) {
                 1050: {
                   perPage: 2,
                 },
-                500: {
+                520: {
                   perPage: 1,
                 },
               },

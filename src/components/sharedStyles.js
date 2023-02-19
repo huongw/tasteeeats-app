@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   h3 {
     margin: 1rem 0 0;
     font-size: 1.5em;
-    
+
     @media only screen and (max-width: 501px) {
       font-size: 1.3em;
     }
@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
 `;
 
 export const HomeWrapper = styled(motion.div)`
-  @media only screen and (max-width: 501px) {
+  padding: 0 1rem;
+
+  @media only screen and (max-width: 520px) {
     text-align: center;
     padding-bottom: 50px;
   }
@@ -64,7 +66,7 @@ export const Container = styled.div`
   margin: auto;
   min-height: 100vh;
   background-color: #efefef;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 
   @media only screen and (min-width: 500px) {
     padding: 0 1rem;
