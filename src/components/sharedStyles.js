@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Error = styled.p`
+  margin: 5em 0;
   text-align: center;
 `;
 

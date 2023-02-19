@@ -38,55 +38,73 @@ function Recipe() {
       transition={{ duration: 0.5 }}
     >
       {isLoading && <Loader />}
-      <ImgWrapper>
-        <h2>{recipe.title}</h2>
-        <img src={recipe.image} alt={recipe.title} />
-      </ImgWrapper>
-      <Card>
-        {Object.keys(recipe).length !== 0 && (
-          <>
-            <Button
-              className={active === "instructions" ? "active" : ""}
-              onClick={() => setActive("instructions")}
-            >
-              Instructions
-            </Button>
-            <Button
-              className={active === "ingredients" ? "active" : ""}
-              onClick={() => setActive("ingredients")}
-            >
-              Ingredients
-            </Button>
-          </>
-        )}
-        <Info>
-          {active === "instructions" && (
+      <h2>{recipe.title}</h2>
+      <Flex>
+        <ImgWrapper>
+          <img src={recipe.image} alt={recipe.title} />
+        </ImgWrapper>
+        <Card>
+          {Object.keys(recipe).length !== 0 && (
             <>
-              <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
-              <div
-                dangerouslySetInnerHTML={{ __html: recipe.instructions }}
-              ></div>
+              <Button
+                className={active === "instructions" ? "active" : ""}
+                onClick={() => setActive("instructions")}
+              >
+                Instructions
+              </Button>
+              <Button
+                className={active === "ingredients" ? "active" : ""}
+                onClick={() => setActive("ingredients")}
+              >
+                Ingredients
+              </Button>
             </>
           )}
-          {active === "ingredients" && (
-            <ul>
-              {recipe.extendedIngredients.map((ingredient) => {
-                return <li key={ingredient.id}>{ingredient.original}</li>;
-              })}
-            </ul>
-          )}
-        </Info>
-      </Card>
+          <Info>
+            {active === "instructions" && (
+              <>
+                <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+                <div
+                  dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+                ></div>
+              </>
+            )}
+            {active === "ingredients" && (
+              <ul>
+                {recipe.extendedIngredients.map((ingredient) => {
+                  return <li key={ingredient.id}>{ingredient.original}</li>;
+                })}
+              </ul>
+            )}
+          </Info>
+        </Card>
+      </Flex>
     </MotionDiv>
   );
 }
 
 const MotionDiv = styled(motion.div)`
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   width: 90%;
   max-width: 1500px;
   margin: auto;
+
+  h2 {
+    width: 80%;
+    margin: 1em auto 0.5em;
+    line-height: 1.3em;
+    text-align: center;
+
+    @media only screen and (min-width: 1301px) {
+      margin: 0 auto 1em;
+    }
+
+    @media only screen and (min-width: 450px) {
+      font-size: 2rem;
+    }
+  }
 
   .active {
     background: linear-gradient(35deg, #494949, #313131);
@@ -94,8 +112,12 @@ const MotionDiv = styled(motion.div)`
   }
 
   @media only screen and (min-width: 1301px) {
-    padding: 5rem 0;
+    padding: 2em 0;
   }
+`;
+
+const Flex = styled.div`
+  display: flex;
 
   @media only screen and (max-width: 1300px) {
     flex-direction: column;
@@ -117,11 +139,6 @@ const Card = styled.div`
 
 const ImgWrapper = styled.div`
   width: 80%;
-
-  h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
 
   img {
     width: 100%;
@@ -161,12 +178,16 @@ const Button = styled.button`
   margin-right: 2em;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 1em;
+
+  @media only screen and (max-width: 1300px) {
+    margin-top: 1em;
+  }
 
   @media only screen and (max-width: 500px) {
     margin-right: 1em;
     padding: 1em;
   }
+
   @media only screen and (max-width: 400px) {
     padding: 0.5em;
     font-size: 0.8em;
