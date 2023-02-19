@@ -29,7 +29,7 @@ function SearchBar() {
 const Form = styled.form`
   margin: auto;
   max-width: 600px;
-  width: 100%;
+  width: 90%;
   position: relative;
 
   input {
@@ -37,7 +37,7 @@ const Form = styled.form`
     background: linear-gradient(35deg, #494949, #313131);
     font-size: .8em;
     color: #fff;
-    padding: 1.2rem 3rem;
+    padding: 1rem 3rem;
     border: none;
     border-radius: 1rem;
     outline: none;
