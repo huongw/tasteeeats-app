@@ -73,14 +73,10 @@ const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
   flex-wrap: wrap;
-
-  @media only screen and (max-width: 400px) {
-    width: 100%;
-  }
 `;
 
 const Card = styled(motion.div)`
