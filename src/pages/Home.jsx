@@ -3,7 +3,6 @@ import { Error } from "../components/sharedStyles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 
 function Home({ error, setError }) {
   const [popular, setPopular] = useState([]);
