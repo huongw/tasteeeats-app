@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 export const Wrapper = styled.div`
   h3 {
     margin: 1rem 0 0;
-    font-size: 2em;
+    font-size: 1.5em;
+    
+    @media only screen and (max-width: 501px) {
+      font-size: 1.3em;
+    }
   }
 `;
 
@@ -58,7 +62,16 @@ export const Container = styled.div`
   width: 90vw;
   max-width: 1500px;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #efefef;
+  padding: 0 .5rem;
+
+  @media only screen and (min-width: 500px) {
+    padding: 0 1rem;
+  }
+  @media only screen and (min-width: 1051px) {
+    padding: 0 5rem;
+  }
 `;
 
 export const Nav = styled.div`
@@ -75,10 +88,10 @@ export const Logo = styled(Link)`
   font-weight: 400;
   font-family: cursive;
   position: absolute;
-  left: 0;
+  left: 5rem;
   top: 60%;
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1500px) {
     left: 50%;
     top: -10%;
     transform: translate(-50%, 50%);

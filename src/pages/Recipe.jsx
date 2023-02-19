@@ -104,7 +104,11 @@ const MotionDiv = styled(motion.div)`
 `;
 
 const Card = styled.div`
-  width: 100%;
+  width: 80%;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 
   @media only screen and (min-width: 1301px) {
     padding: 0 2rem;
@@ -112,7 +116,7 @@ const Card = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-  width: 100%;
+  width: 80%;
 
   h2 {
     margin-bottom: 1rem;
@@ -120,6 +124,10 @@ const ImgWrapper = styled.div`
   }
 
   img {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
     width: 100%;
   }
 
@@ -158,6 +166,10 @@ const Button = styled.button`
   @media only screen and (max-width: 500px) {
     margin-right: 1em;
     padding: 1em;
+  }
+  @media only screen and (max-width: 400px) {
+    padding: 0.5em;
+    font-size: 0.8em;
   }
 `;
 

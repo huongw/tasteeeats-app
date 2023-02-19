@@ -42,8 +42,8 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
   cursor: pointer;
-  width: 5em;
-  height: 5em;
+  width: 4em;
+  height: 4em;
   transform: scale(0.8);
 
   h4 {
@@ -57,14 +57,18 @@ const StyledLink = styled(NavLink)`
 
   svg {
     color: #fff;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 0.3em;
   }
 
   @media only screen and (min-width: 600px) {
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     margin: 0 1em;
+
+    svg {
+      font-size: 1.5em;
+    }
   }
 
   &.active {

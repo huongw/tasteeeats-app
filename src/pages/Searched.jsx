@@ -64,11 +64,14 @@ const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   width: 90%;
   max-width: 1500px;
   margin: 2rem auto 0;
   flex-wrap: wrap;
+  
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Card = styled.div`
@@ -76,11 +79,9 @@ const Card = styled.div`
   overflow: hidden;
   position: relative;
   height: 100%;
-  margin: 2rem 0 1.2rem;
+  margin: 0 .5rem 1.2rem;
 
-  @media only screen and (max-width: 790px) {
-    margin: 0rem 0 1.2rem;
-    width: 100%;
+  @media only screen and (max-width: 825px) {
 
     img {
       width: 100%;
