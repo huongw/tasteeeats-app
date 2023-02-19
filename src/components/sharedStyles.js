@@ -20,6 +20,10 @@ export const HomeWrapper = styled(motion.div)`
     text-align: center;
     padding-bottom: 50px;
   }
+  
+  @media only screen and (max-width: 400px) {
+    padding: 0 .5rem;
+  }
 `;
 
 export const Error = styled.p`
