@@ -154,7 +154,7 @@ const ImgWrapper = styled.div`
 `;
 
 const Info = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0;
 
   p {
     margin: 1rem 0;
