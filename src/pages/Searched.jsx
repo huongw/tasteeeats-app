@@ -38,7 +38,7 @@ function Searched({ error, setError }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
       >
         {!error && !isLoading && (
           <>
@@ -83,16 +83,15 @@ function Searched({ error, setError }) {
 const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
-  text-align: center;
-  flex-wrap: wrap;
 `;
 
 const Flex = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 1em;
 `;

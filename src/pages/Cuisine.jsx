@@ -75,9 +75,9 @@ const MotionDiv = styled(motion.div)`
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
-  `;
-  
-  const Flex = styled.div`
+`;
+
+const Flex = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
