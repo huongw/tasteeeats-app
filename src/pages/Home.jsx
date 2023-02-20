@@ -55,7 +55,7 @@ function Home({ error, setError }) {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        {!error && (
+        {!error && !isLoading && (
           <>
             <MostPopular popular={popular} isLoading={isLoading} />
             <Veggie veggie={veggie} isLoading={isLoading} />

@@ -41,7 +41,7 @@ function Cuisine({ error, setError }) {
         transition={{ duration: 0.5 }}
       >
         <h2>{params.type} Dishes</h2>
-        {!error && (
+        {!error && !isLoading && (
           <Flex>
             {cuisines.map((cuisine) => (
               <Card
