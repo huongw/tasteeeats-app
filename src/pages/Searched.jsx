@@ -105,7 +105,7 @@ const Flex = styled.div`
 `;
 
 const Card = styled(motion.div)`
-  border-radius: 15px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   height: 100%;

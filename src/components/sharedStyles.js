@@ -51,7 +51,7 @@ export const imageMotion2 = {
 };
 
 export const Card = styled(motion.div)`
-  border-radius: 15px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   height: 100%;
