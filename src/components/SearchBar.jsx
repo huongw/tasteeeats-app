@@ -9,7 +9,14 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigateToPage(`searched/${value}`);
+
+    if (isNaN(value)) {
+      alert("Please insert a valid input!");
+      setValue("");
+      return;
+    }
+
+    navigateToPage(`searched/${value.split(" ").join("+")}`);
     setValue("");
   };
 

@@ -16,6 +16,7 @@ function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
+  const paramSearch = params.search.split("+").join(" ");
 
   useEffect(() => {
     axios
@@ -50,11 +51,11 @@ function Searched({ error, setError }) {
           <>
             {searches.length === 0 ? (
               <p>
-                {`Sorry, there are no search results for "${params.search}"`}
+                Sorry, there are no search results for "{paramSearch}"
               </p>
             ) : (
               <>
-                <h2>Search Results: {params.search}</h2>
+                <h2>Search Results: {paramSearch}</h2>
                 <Flex>
                   {searches.map((cuisine) => {
                     return (
