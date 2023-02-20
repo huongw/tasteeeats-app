@@ -41,13 +41,13 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
   cursor: pointer;
-  width: 5em;
-  height: 5em;
+  width: 4em;
+  height: 4em;
   transform: scale(0.8);
   
-  @media only screen and (max-width: 400px) {
-    width: 4em;
-    height: 4em;
+  @media only screen and (min-width: 401px) {
+    width: 5em;
+    height: 5em;
   }
 
   h4 {
