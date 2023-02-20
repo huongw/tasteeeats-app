@@ -40,8 +40,9 @@ function Cuisine({ error, setError }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
+        <h2>{params.type} Dishes</h2>
         {!error && (
-          <>
+          <Flex>
             {cuisines.map((cuisine) => (
               <Card
                 key={cuisine.id}
@@ -50,7 +51,7 @@ function Cuisine({ error, setError }) {
                 animate="rest"
               >
                 <Link to={`/recipe/${cuisine.id}`}>
-                  <h4>{cuisine.title}</h4>
+                  <p>{cuisine.title}</p>
                   <motion.img
                     src={cuisine.image}
                     alt={cuisine.title}
@@ -60,7 +61,7 @@ function Cuisine({ error, setError }) {
                 </Link>
               </Card>
             ))}
-          </>
+          </Flex>
         )}
       </MotionDiv>
     </>
@@ -71,10 +72,16 @@ const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
+`;
+
+const Flex = styled.div`
+  display: flex;
   flex-wrap: wrap;
+  margin-top: 1em;
 `;
 
 const Card = styled(motion.div)`
@@ -88,7 +95,7 @@ const Card = styled(motion.div)`
     width: 90%;
   }
 
-  h4 {
+  p {
     text-align: center;
     padding: 1em 0.5em;
     position: absolute;

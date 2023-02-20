@@ -48,26 +48,29 @@ function Searched({ error, setError }) {
               </SearchErrorMsg>
             ) : (
               <>
-                {searches.map((cuisine) => {
-                  return (
-                    <Card
-                      key={cuisine.id}
-                      whileHover="hover"
-                      initial="rest"
-                      animate="rest"
-                    >
-                      <Link to={`/recipe/${cuisine.id}`}>
-                        <h4>{cuisine.title}</h4>
-                        <motion.img
-                          src={cuisine.image}
-                          alt={cuisine.title}
-                          variants={imageMotion}
-                        />
-                        <Gradient />
-                      </Link>
-                    </Card>
-                  );
-                })}
+                <h2>Search Results: {params.search}</h2>
+                <Flex>
+                  {searches.map((cuisine) => {
+                    return (
+                      <Card
+                        key={cuisine.id}
+                        whileHover="hover"
+                        initial="rest"
+                        animate="rest"
+                      >
+                        <Link to={`/recipe/${cuisine.id}`}>
+                          <p>{cuisine.title}</p>
+                          <motion.img
+                            src={cuisine.image}
+                            alt={cuisine.title}
+                            variants={imageMotion}
+                          />
+                          <Gradient />
+                        </Link>
+                      </Card>
+                    );
+                  })}
+                </Flex>
               </>
             )}
           </>
@@ -87,6 +90,12 @@ const MotionDiv = styled(motion.div)`
   flex-wrap: wrap;
 `;
 
+const Flex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+`;
+
 const Card = styled(motion.div)`
   border-radius: 15px;
   overflow: hidden;
@@ -98,7 +107,7 @@ const Card = styled(motion.div)`
     width: 90%;
   }
 
-  h4 {
+  p {
     text-align: center;
     padding: 1em 0.5em;
     position: absolute;
