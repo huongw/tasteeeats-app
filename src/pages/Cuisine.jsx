@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 import { Loader } from "./index";
-import { Gradient, Error, imageMotion } from "../components/sharedStyles";
+import {
+  Gradient,
+  Error,
+  imageMotion,
+  MotionDiv,
+  Flex,
+  Card2,
+} from "../components/sharedStyles";
 
 function Cuisine({ error, setError }) {
   const [cuisines, setCuisines] = useState([]);
@@ -45,7 +51,7 @@ function Cuisine({ error, setError }) {
             <h2>{params.type} Dishes</h2>
             <Flex>
               {cuisines.map((cuisine) => (
-                <Card
+                <Card2
                   key={cuisine.id}
                   whileHover="hover"
                   initial="rest"
@@ -60,7 +66,7 @@ function Cuisine({ error, setError }) {
                     />
                     <Gradient />
                   </Link>
-                </Card>
+                </Card2>
               ))}
             </Flex>
           </>
@@ -69,49 +75,5 @@ function Cuisine({ error, setError }) {
     </>
   );
 }
-
-const MotionDiv = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1500px;
-  margin: 2rem auto 0;
-
-  h2 {
-    font-size: 1.8em;
-
-    @media only screen and (max-width: 370px) {
-      font-size: 1.3em;
-    }
-  }
-`;
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 1em;
-`;
-
-const Card = styled(motion.div)`
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  height: 100%;
-  margin: 0 1rem 1.2rem;
-
-  p {
-    text-align: center;
-    padding: 1em 0.5em;
-    position: absolute;
-    color: #fff;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 2;
-  }
-`;
 
 export default Cuisine;

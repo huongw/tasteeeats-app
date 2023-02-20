@@ -55,7 +55,7 @@ const StyledLink = styled(NavLink)`
     font-size: 0.75em;
 
     @media only screen and (min-width: 401px) {
-      font-size: 1em;
+      font-size: .9em;
     }
   }
 
@@ -65,10 +65,9 @@ const StyledLink = styled(NavLink)`
     margin-bottom: 0.25em;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 751px) {
     width: 6em;
     height: 6em;
-    margin: 0 .5em;
 
     svg {
       font-size: 1.5em;

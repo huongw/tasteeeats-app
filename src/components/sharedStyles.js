@@ -85,10 +85,6 @@ export const Container = styled.div`
   margin: auto;
   min-height: 100vh;
   background-color: #efefef;
-
-  @media only screen and (min-width: 1051px) {
-    padding: 0 5rem;
-  }
 `;
 
 export const Nav = styled.div`
@@ -101,7 +97,7 @@ export const Nav = styled.div`
 
 export const Logo = styled(Link)`
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 400;
   font-family: "Lobster Two", cursive;
   position: absolute;
@@ -110,9 +106,58 @@ export const Logo = styled(Link)`
 
   @media only screen and (max-width: 1500px) {
     left: 50%;
-    top: -10%;
+    top: 0;
     transform: translate(-50%, 50%);
     width: 100%;
     text-align: center;
+  }
+`;
+
+export const MotionDiv = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem auto 0;
+  width: 90%;
+
+  h2 {
+    font-size: 1.8em;
+  }
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  gap: 1em;
+`;
+
+export const Card2 = styled(motion.div)`
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  @media only screen and (max-width: 750px) {
+    width: 70%;
+  }
+  @media only screen and (max-width: 550px) {
+    width: 90%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+    padding: 1em 0.5em;
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 2;
   }
 `;

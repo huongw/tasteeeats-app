@@ -9,7 +9,7 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigateToPage(`searched/${value}`)
+    navigateToPage(`searched/${value}`);
     setValue("");
   };
 
@@ -29,8 +29,12 @@ function SearchBar() {
 const Form = styled.form`
   margin: auto;
   max-width: 600px;
-  width: 90%;
   position: relative;
+  width: 90%;
+
+  @media only screen and (min-width: 551px) {
+    width: 75%;
+  }
 
   input {
     border: none;
@@ -44,7 +48,7 @@ const Form = styled.form`
     width: 100%;
     
     @media only screen and (min-width: 401px) {
-      font-size: 1.2em;
+      font-size: 1em;
     }
   }
 
