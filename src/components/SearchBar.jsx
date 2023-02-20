@@ -9,13 +9,6 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (isNaN(value)) {
-      alert("Please insert a valid input!");
-      setValue("");
-      return;
-    }
-
     navigateToPage(`searched/${value.split(" ").join("+")}`);
     setValue("");
   };
