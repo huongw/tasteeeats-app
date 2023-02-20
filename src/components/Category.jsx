@@ -62,7 +62,7 @@ const StyledLink = styled(NavLink)`
   svg {
     color: #fff;
     font-size: 1.2em;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.25em;
   }
 
   @media only screen and (min-width: 600px) {
