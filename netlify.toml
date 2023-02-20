@@ -8,5 +8,10 @@
   # been specified, include it in the publish directory path.
   publish = "build/"
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 [build.environment]
   REACT_APP_BASE_URL = "https://api.spoonacular.com/recipes"
