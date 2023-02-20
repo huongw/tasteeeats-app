@@ -4,7 +4,7 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialised;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 }
 
 body:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -34,6 +34,8 @@ a {
   color: #313131;
 }
 
-h3, h4 {
-  font-family: 'Anton', sans-serif;
+h3,
+h4 {
+  font-family: "Anton", sans-serif;
+  font-weight: lighter;
 }
