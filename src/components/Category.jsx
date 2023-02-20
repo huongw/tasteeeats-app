@@ -41,8 +41,8 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   background: linear-gradient(35deg, #494949, #313131);
   cursor: pointer;
-  width: 4em;
-  height: 4em;
+  width: 4.5em;
+  height: 4.5em;
   transform: scale(0.8);
   
   @media only screen and (min-width: 401px) {
