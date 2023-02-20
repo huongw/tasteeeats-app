@@ -122,6 +122,8 @@ export const MotionDiv = styled(motion.div)`
 
   h2 {
     font-size: 1.8em;
+    text-align: center;
+    line-height: 1em;
   }
 `;
 
@@ -137,12 +139,14 @@ export const Card2 = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  height: 100%;
+  width: 320px;
+  margin-bottom: 2em;
 
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 770px) {
     width: 70%;
   }
-  @media only screen and (max-width: 550px) {
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 1em;
     width: 90%;
   }
   @media only screen and (max-width: 400px) {

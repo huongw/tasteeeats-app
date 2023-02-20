@@ -65,7 +65,7 @@ const StyledLink = styled(NavLink)`
     margin-bottom: 0.25em;
   }
 
-  @media only screen and (min-width: 751px) {
+  @media only screen and (min-width: 601px) {
     width: 6em;
     height: 6em;
 

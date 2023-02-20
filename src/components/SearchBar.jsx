@@ -32,7 +32,7 @@ const Form = styled.form`
   position: relative;
   width: 90%;
 
-  @media only screen and (min-width: 551px) {
+  @media only screen and (min-width: 401px) {
     width: 75%;
   }
 
