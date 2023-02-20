@@ -6,11 +6,10 @@ export const Wrapper = styled.div`
   margin: 2rem auto;
   width: 90%;
 
-  h3 {
-    margin: 1rem 0 0;
-    font-size: 1.5em;
+  h2 {
+    font-size: 1.8em;
 
-    @media only screen and (max-width: 501px) {
+    @media only screen and (max-width: 370px) {
       font-size: 1.3em;
     }
   }

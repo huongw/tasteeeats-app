@@ -93,7 +93,7 @@ const Flex = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1em;
+  margin-top: .5em;
 `;
 
 const Card = styled(motion.div)`

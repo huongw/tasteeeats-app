@@ -9,7 +9,7 @@ function Veggie({ veggie, isLoading }) {
     <Wrapper>
       {!isLoading && (
         <>
-          <h3>Vegetarian</h3>
+          <h2>Vegetarian</h2>
           <Splide
             options={{
               perPage: 4,

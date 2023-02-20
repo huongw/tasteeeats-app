@@ -9,7 +9,7 @@ function Desserts({ desserts, isLoading }) {
     <Wrapper>
       {!isLoading && (
         <>
-          <h3>Desserts</h3>
+          <h2>Desserts</h2>
           <Splide
             options={{
               perPage: 4,

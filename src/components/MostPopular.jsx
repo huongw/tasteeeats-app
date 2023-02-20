@@ -9,7 +9,7 @@ function MostPopular({ popular, isLoading }) {
     <Wrapper>
       {!isLoading && (
         <>
-          <h3>Most Popular</h3>
+          <h2>Most Popular</h2>
           <Splide
             options={{
               perPage: 3,

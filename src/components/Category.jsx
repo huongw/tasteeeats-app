@@ -54,7 +54,7 @@ const StyledLink = styled(NavLink)`
     color: #fff;
     font-size: 0.65em;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 401px) {
       font-size: 0.8em;
     }
   }
