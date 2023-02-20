@@ -80,7 +80,7 @@ export const Gradient = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 90vw;
+  width: 95vw;
   max-width: 1500px;
   margin: auto;
   min-height: 100vh;
