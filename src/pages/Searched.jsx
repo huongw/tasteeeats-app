@@ -40,12 +40,12 @@ function Searched({ error, setError }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {!error && (
+        {!error && !isLoading && (
           <>
             {searches.length === 0 ? (
-              <SearchErrorMsg>
+              <p>
                 {`Sorry, there are no search results for "${params.search}"`}
-              </SearchErrorMsg>
+              </p>
             ) : (
               <>
                 <h2>Search Results: {params.search}</h2>
@@ -87,6 +87,7 @@ const MotionDiv = styled(motion.div)`
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
+  text-align: center;
   flex-wrap: wrap;
 `;
 
@@ -101,11 +102,7 @@ const Card = styled(motion.div)`
   overflow: hidden;
   position: relative;
   height: 100%;
-  margin: 0 0.5rem 1.2rem;
-
-  @media only screen and (max-width: 845px) {
-    width: 90%;
-  }
+  margin: 0 1rem 1.2rem;
 
   p {
     text-align: center;
@@ -118,10 +115,6 @@ const Card = styled(motion.div)`
     width: 100%;
     z-index: 2;
   }
-`;
-
-const SearchErrorMsg = styled.p`
-  text-align: center;
 `;
 
 export default Searched;

@@ -71,15 +71,15 @@ function Cuisine({ error, setError }) {
 const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
-`;
-
-const Flex = styled.div`
+  `;
+  
+  const Flex = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 1em;
 `;
@@ -89,11 +89,7 @@ const Card = styled(motion.div)`
   overflow: hidden;
   position: relative;
   height: 100%;
-  margin: 0 0.5rem 1.2rem;
-
-  @media only screen and (max-width: 845px) {
-    width: 90%;
-  }
+  margin: 0 1rem 1.2rem;
 
   p {
     text-align: center;
