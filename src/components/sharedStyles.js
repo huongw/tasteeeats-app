@@ -81,11 +81,11 @@ export const Gradient = styled.div`
 
 export const Container = styled.div`
   width: 95vw;
-  max-width: 1500px;
+  max-width: 1600px;
   margin: auto;
   min-height: 100vh;
   background-color: #efefef;
-  
+
   @media only screen and (min-width: 1051px) {
     padding: 0 5rem;
   }
@@ -103,7 +103,7 @@ export const Logo = styled(Link)`
   text-decoration: none;
   font-size: 2em;
   font-weight: 400;
-  font-family: cursive;
+  font-family: "Lobster Two", cursive;
   position: absolute;
   left: 5rem;
   top: 60%;

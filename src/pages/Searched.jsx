@@ -87,13 +87,21 @@ const MotionDiv = styled(motion.div)`
   width: 100%;
   max-width: 1500px;
   margin: 2rem auto 0;
+
+  h2 {
+    font-size: 1.8em;
+
+    @media only screen and (max-width: 370px) {
+      font-size: 1.3em;
+    }
+  }
 `;
 
 const Flex = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: .5em;
+  margin-top: 1em;
 `;
 
 const Card = styled(motion.div)`

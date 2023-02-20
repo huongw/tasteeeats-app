@@ -40,28 +40,30 @@ function Cuisine({ error, setError }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2>{params.type} Dishes</h2>
         {!error && !isLoading && (
-          <Flex>
-            {cuisines.map((cuisine) => (
-              <Card
-                key={cuisine.id}
-                whileHover="hover"
-                initial="rest"
-                animate="rest"
-              >
-                <Link to={`/recipe/${cuisine.id}`}>
-                  <p>{cuisine.title}</p>
-                  <motion.img
-                    src={cuisine.image}
-                    alt={cuisine.title}
-                    variants={imageMotion}
-                  />
-                  <Gradient />
-                </Link>
-              </Card>
-            ))}
-          </Flex>
+          <>
+            <h2>{params.type} Dishes</h2>
+            <Flex>
+              {cuisines.map((cuisine) => (
+                <Card
+                  key={cuisine.id}
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
+                >
+                  <Link to={`/recipe/${cuisine.id}`}>
+                    <p>{cuisine.title}</p>
+                    <motion.img
+                      src={cuisine.image}
+                      alt={cuisine.title}
+                      variants={imageMotion}
+                    />
+                    <Gradient />
+                  </Link>
+                </Card>
+              ))}
+            </Flex>
+          </>
         )}
       </MotionDiv>
     </>
@@ -89,7 +91,7 @@ const Flex = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: .5em;
+  margin-top: 1em;
 `;
 
 const Card = styled(motion.div)`
