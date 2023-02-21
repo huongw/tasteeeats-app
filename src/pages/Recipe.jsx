@@ -15,8 +15,6 @@ function Recipe() {
 
   let params = useParams();
 
-  console.log(recipe);
-
   useEffect(() => {
     axios
       .get(

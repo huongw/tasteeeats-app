@@ -9,6 +9,12 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!value || /[^a-zA-Z]+/.test(value)) {
+      setValue("");
+      return;
+    }
+
     navigateToPage(`searched/${value.split(" ").join("+")}`);
     setValue("");
   };
