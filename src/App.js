@@ -1,24 +1,19 @@
 import Pages from "./pages/Pages";
 import { Container } from "./components/sharedStyles";
 import { BrowserRouter as Router } from "react-router-dom";
-import { GiKnifeFork } from "react-icons/gi";
-import { Nav, Logo } from "./components/sharedStyles";
-import { SearchBar, Category } from "./pages";
+import { Category, NavBar } from "./pages";
+import { FavoritesProvider } from "./FavoritesContext";
 
 function App() {
   return (
     <Container>
-      <Router>
-        <Nav>
-          <Logo to={"/"}>
-            <GiKnifeFork />
-            TasteeEats
-          </Logo>
-          <SearchBar />
-        </Nav>
-        <Category />
-        <Pages />
-      </Router>
+      <FavoritesProvider>
+        <Router>
+          <NavBar />
+          <Category />
+          <Pages />
+        </Router>
+      </FavoritesProvider>
     </Container>
   );
 }

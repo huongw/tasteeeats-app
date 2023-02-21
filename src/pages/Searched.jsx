@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import FavoritesContext from "../FavoritesContext";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,6 +11,7 @@ import {
   MotionDiv,
   Flex,
   Card2,
+  Heart
 } from "../components/sharedStyles";
 
 function Searched({ error, setError }) {
@@ -17,6 +19,7 @@ function Searched({ error, setError }) {
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const paramSearch = params.search.split("+").join(" ");
+  const { addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     axios
@@ -50,9 +53,7 @@ function Searched({ error, setError }) {
         {!error && !isLoading && (
           <>
             {searches.length === 0 ? (
-              <p>
-                Sorry, there are no search results for "{paramSearch}"
-              </p>
+              <p>Sorry, there are no search results for "{paramSearch}"</p>
             ) : (
               <>
                 <h2>Search Results: {paramSearch}</h2>
@@ -65,6 +66,15 @@ function Searched({ error, setError }) {
                         initial="rest"
                         animate="rest"
                       >
+                        <Heart
+                          onClick={() =>
+                            addToFavorites(
+                              cuisine.id,
+                              cuisine.title,
+                              cuisine.image
+                            )
+                          }
+                        />
                         <Link to={`/recipe/${cuisine.id}`}>
                           <p>{cuisine.title}</p>
                           <motion.img

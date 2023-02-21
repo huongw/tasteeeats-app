@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Cuisine, Searched, Recipe, Home } from "./index";
+import { Cuisine, Searched, Recipe, Home, Favorites } from "./index";
 import { useState } from "react";
 
 function Pages() {
@@ -19,6 +19,7 @@ function Pages() {
           element={<Searched error={error} setError={setError} />}
         />
         <Route path="/recipe/:id" element={<Recipe />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </AnimatePresence>
   );

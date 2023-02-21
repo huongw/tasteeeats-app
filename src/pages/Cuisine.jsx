@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import FavoritesContext from "../FavoritesContext";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,12 +11,15 @@ import {
   MotionDiv,
   Flex,
   Card2,
+  Heart,
 } from "../components/sharedStyles";
 
 function Cuisine({ error, setError }) {
   const [cuisines, setCuisines] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
+
+  const { addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     axios
@@ -57,6 +61,11 @@ function Cuisine({ error, setError }) {
                   initial="rest"
                   animate="rest"
                 >
+                  <Heart
+                    onClick={() =>
+                      addToFavorites(cuisine.id, cuisine.title, cuisine.image)
+                    }
+                  />
                   <Link to={`/recipe/${cuisine.id}`}>
                     <p>{cuisine.title}</p>
                     <motion.img

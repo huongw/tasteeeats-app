@@ -3,6 +3,8 @@ export { default as Veggie } from "../components/Veggies";
 export { default as Desserts } from "../components/Desserts";
 export { default as Category } from "../components/Category";
 export { default as SearchBar } from "../components/SearchBar";
+export { default as NavBar } from "../components/NavBar";
+export { default as Favorites } from "../components/Favorites";
 export { default as Cuisine } from "./Cuisine";
 export { default as Recipe } from "./Recipe";
 export { default as Searched } from "./Searched";
