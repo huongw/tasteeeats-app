@@ -91,14 +91,18 @@ export const Nav = styled.div`
   padding-top: 4rem;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   margin: auto;
   position: relative;
+
+  @media only screen and (max-width: 1050px) {
+    justify-content: center;
+    gap: 1em;
+  }
 `;
 
 export const Cart = styled(Link)`
-  position: absolute;
-  right: 8%;
-  bottom: 5%;
+  position: relative;
 
   svg {
     width: 35px;
@@ -114,20 +118,9 @@ export const Cart = styled(Link)`
     transform: translate(-20%, -100%);
   }
 
-  @media only screen and (max-width: 900px) {
-    right: 5%;
-
+  @media only screen and (max-width: 1050px) {
     p {
       font-size: 0;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    right: 2%;
-
-    svg {
-      width: 30px;
-      height: 30px;
     }
   }
 
@@ -145,11 +138,9 @@ export const Logo = styled(Link)`
   font-size: 1.5em;
   font-weight: 400;
   font-family: "Lobster Two", cursive;
-  position: absolute;
-  left: 5rem;
-  top: 60%;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1050px) {
+    position: absolute;
     left: 50%;
     top: 0;
     transform: translate(-50%, 50%);
@@ -212,16 +203,11 @@ export const Card2 = styled(motion.div)`
 `;
 
 export const Icon = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 9;
   outline: 0;
   border: 0;
   background: none;
   width: 25px;
   height: 25px;
-  margin: 10px;
   cursor: pointer;
 
   svg {
@@ -236,6 +222,11 @@ export const Icon = styled.button`
 `;
 
 export const Trash = styled(Icon)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  z-index: 9;
   background: #fefefe;
   border-radius: 50%;
   border: 1px solid;

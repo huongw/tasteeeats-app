@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -7,11 +7,14 @@ import { Loader } from "./index";
 import { FaUtensils } from "react-icons/fa";
 import { TfiTimer } from "react-icons/tfi";
 import { GiGrain } from "react-icons/gi";
+import FavoriteIcon from "../components/FavoriteIcon/FavoriteIcon";
+import { BiArrowBack } from "react-icons/bi";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
   const [active, setActive] = useState("instructions");
   const [isLoading, setIsLoading] = useState(true);
+  let navigate = useNavigate();
 
   let params = useParams();
 
@@ -41,6 +44,10 @@ function Recipe() {
         exit={{ opacity: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
+        <BackButton onClick={() => navigate(-1)}>
+          <BiArrowBack />
+          Back
+        </BackButton>
         <h2>{recipe.title}</h2>
         {!isLoading && (
           <>
@@ -52,7 +59,8 @@ function Recipe() {
                     <TfiTimer /> {recipe.readyInMinutes} Minutes
                   </span>
                   <span>
-                    <FaUtensils /> {recipe.servings} {recipe.servings > 1 ? "Servings" : "Serving"}
+                    <FaUtensils /> {recipe.servings}{" "}
+                    {recipe.servings > 1 ? "Servings" : "Serving"}
                   </span>
                   <span>
                     {recipe.glutenFree && (
@@ -65,7 +73,7 @@ function Recipe() {
               </ImgWrapper>
               <Card>
                 {Object.keys(recipe).length !== 0 && (
-                  <>
+                  <ButtonWrapper>
                     <Button
                       className={active === "instructions" ? "active" : ""}
                       onClick={() => setActive("instructions")}
@@ -78,7 +86,8 @@ function Recipe() {
                     >
                       Ingredients
                     </Button>
-                  </>
+                    <FavoriteIcon cuisine={recipe} />
+                  </ButtonWrapper>
                 )}
                 <Info>
                   {active === "instructions" && (
@@ -122,10 +131,10 @@ const MotionDiv = styled(motion.div)`
 
   h2 {
     width: 80%;
-    margin: 1em auto 0.5em;
+    margin: 0 auto .5em;
     line-height: 1.3em;
     text-align: center;
-
+    
     @media only screen and (min-width: 1301px) {
       margin: 0 auto 1em;
     }
@@ -143,6 +152,16 @@ const MotionDiv = styled(motion.div)`
   @media only screen and (min-width: 1301px) {
     padding: 2em 0;
   }
+`;
+
+const BackButton = styled.button`
+  background: none;
+  width: 100px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  margin: 1em auto;
 `;
 
 const SpanWrapper = styled.div`
@@ -176,6 +195,16 @@ const Card = styled.div`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  
+  @media only screen and (max-width: 500px) {
+    gap: 0;
+  }
+`;
+
 const ImgWrapper = styled.div`
   width: 80%;
 
@@ -193,11 +222,7 @@ const ImgWrapper = styled.div`
 `;
 
 const Info = styled.div`
-  margin: 2rem 0;
-
-  p {
-    margin: 1rem 0;
-  }
+  margin: 1rem 0;
 
   li {
     margin: 0.5rem 0;
@@ -210,7 +235,7 @@ const Button = styled.button`
   color: #313131;
   background: #fff;
   border: 2px solid #000;
-  margin-right: 2em;
+
   font-weight: 600;
   cursor: pointer;
 

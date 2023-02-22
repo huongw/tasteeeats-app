@@ -3,7 +3,6 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Wrapper, Card, Gradient } from "../sharedStyles";
 import { motion } from "framer-motion";
-import FavoriteIcon from "../FavoriteIcon/FavoriteIcon";
 
 function HomeCard({ food, isLoading, title, settings, imageMotion }) {
   return (
@@ -20,7 +19,6 @@ function HomeCard({ food, isLoading, title, settings, imageMotion }) {
               return (
                 <SplideSlide key={recipe.id}>
                   <Card whileHover="hover" initial="rest" animate="rest">
-                    <FavoriteIcon cuisine={recipe} />
                     <Link to={`/recipe/${recipe.id}`}>
                       <p>{recipe.title}</p>
                       <motion.img

@@ -13,7 +13,6 @@ function Card({ cuisines }) {
           initial="rest"
           animate="rest"
         >
-          <FavoriteIcon cuisine={cuisine} />
           <Link to={`/recipe/${cuisine.id}`}>
             <p>{cuisine.title}</p>
             <motion.img
