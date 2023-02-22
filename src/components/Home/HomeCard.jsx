@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient, imageMotion } from "../sharedStyles";
+import { Wrapper, Card, Gradient } from "../sharedStyles";
 import { motion } from "framer-motion";
 import FavoriteIcon from "../FavoriteIcon/FavoriteIcon";
 
-function HomeCard({ food, isLoading, title }) {
-
+function HomeCard({ food, isLoading, title, settings, imageMotion }) {
   return (
     <Wrapper>
       {!isLoading && (
@@ -14,22 +13,7 @@ function HomeCard({ food, isLoading, title }) {
           <h2>{title}</h2>
           <Splide
             options={{
-              perPage: 4,
-              arrows: true,
-              pagination: false,
-              drag: "free",
-              gap: "1em",
-              breakpoints: {
-                1050: {
-                  perPage: 3,
-                },
-                800: {
-                  perPage: 2,
-                },
-                600: {
-                  perPage: 1,
-                },
-              },
+              ...settings,
             }}
           >
             {food.map((recipe) => {
