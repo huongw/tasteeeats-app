@@ -95,6 +95,38 @@ export const Nav = styled.div`
   position: relative;
 `;
 
+export const Cart = styled(Link)`
+  position: absolute;
+  right: 8%;
+  bottom: 5%;
+
+  svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  @media only screen and (max-width: 900px) {
+    right: 5%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    right: 2%;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+`;
+
 export const Logo = styled(Link)`
   text-decoration: none;
   font-size: 1.5em;
@@ -177,6 +209,7 @@ export const Heart = styled.button`
   width: 25px;
   height: 25px;
   margin: 10px;
+  cursor: pointer;
 
   svg {
     width: 100%;

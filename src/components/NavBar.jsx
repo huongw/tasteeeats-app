@@ -1,10 +1,9 @@
 import { GiKnifeFork } from "react-icons/gi";
 import { MdFavorite } from "react-icons/md";
-import { Nav, Logo } from "./sharedStyles";
+import { Nav, Logo, Cart } from "./sharedStyles";
 import { SearchBar } from "../pages";
 import FavoritesContext from "../FavoritesContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
 function NavBar() {
   const { favorites } = useContext(FavoritesContext);
@@ -16,10 +15,10 @@ function NavBar() {
         TasteeEats
       </Logo>
       <SearchBar />
-      <Link to={"/favorites"}>
+      <Cart to={"/favorites"}>
         <MdFavorite />
         <span>{favorites.length}</span>
-      </Link>
+      </Cart>
     </Nav>
   );
 }

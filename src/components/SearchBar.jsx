@@ -36,18 +36,14 @@ const Form = styled.form`
   margin: auto;
   max-width: 600px;
   position: relative;
-  width: 90%;
-
-  @media only screen and (min-width: 401px) {
-    width: 75%;
-  }
+  width: 75%;
 
   input {
     border: none;
     background: linear-gradient(35deg, #494949, #313131);
     font-size: .8em;
     color: #fff;
-    padding: 1rem 3rem;
+    padding: 1rem 2.5rem;
     border: none;
     border-radius: 1rem;
     outline: none;
