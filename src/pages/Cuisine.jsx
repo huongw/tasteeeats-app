@@ -11,7 +11,7 @@ import {
   MotionDiv,
   Flex,
   Card2,
-  Heart,
+  Icon,
 } from "../components/sharedStyles";
 import { GrFavorite } from "react-icons/gr";
 import isItemInFavorites from "../helpers/isItemInFavorites";
@@ -63,7 +63,7 @@ function Cuisine({ error, setError }) {
                   initial="rest"
                   animate="rest"
                 >
-                  <Heart
+                  <Icon
                     onClick={() => {
                       if (!isItemInFavorites(cuisine.id, favorites)) {
                         addToFavorites(
@@ -75,7 +75,7 @@ function Cuisine({ error, setError }) {
                     }}
                   >
                     <GrFavorite />
-                  </Heart>
+                  </Icon>
                   <Link to={`/recipe/${cuisine.id}`}>
                     <p>{cuisine.title}</p>
                     <motion.img

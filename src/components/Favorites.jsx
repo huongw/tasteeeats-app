@@ -1,11 +1,24 @@
-import { Card2, Gradient, imageMotion, Flex, MotionDiv } from "./sharedStyles";
+import {
+  Card2,
+  Gradient,
+  imageMotion,
+  Flex,
+  MotionDiv,
+  Trash,
+} from "./sharedStyles";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import FavoritesContext from "../FavoritesContext";
+import { GiTrashCan } from "react-icons/gi";
 
 function Favorites() {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+
+  const removeItem = (id) => {
+    const filtered = favorites.filter(item => item.id !== id)
+    setFavorites(filtered)
+  }
 
   return (
     <MotionDiv>
@@ -28,6 +41,9 @@ function Favorites() {
                 />
                 <Gradient />
               </Link>
+              <Trash onClick={() => removeItem(item.id)}>
+                <GiTrashCan />
+              </Trash>
             </Card2>
           );
         })}

@@ -198,7 +198,7 @@ export const Card2 = styled(motion.div)`
   }
 `;
 
-export const Heart = styled.button`
+export const Icon = styled.button`
   position: absolute;
   top: 0;
   right: 0;
@@ -219,5 +219,15 @@ export const Heart = styled.button`
       fill: #fff;
       stroke: #000;
     }
+  }
+`;
+
+export const Trash = styled(Icon)`
+  background: #fefefe;
+  border-radius: 50%;
+  border: 1px solid;
+
+  svg path {
+    fill: #000;
   }
 `;
