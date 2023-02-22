@@ -53,8 +53,6 @@ const Form = styled.form`
     }
   }
 
-  
-
   svg {
     position: absolute;
     top: 50%;

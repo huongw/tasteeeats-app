@@ -131,10 +131,10 @@ const MotionDiv = styled(motion.div)`
 
   h2 {
     width: 80%;
-    margin: 0 auto .5em;
+    margin: 0 auto 0.5em;
     line-height: 1.3em;
     text-align: center;
-    
+
     @media only screen and (min-width: 1301px) {
       margin: 0 auto 1em;
     }
@@ -162,6 +162,15 @@ const BackButton = styled.button`
   cursor: pointer;
   text-align: center;
   margin: 1em auto;
+  color: #313131;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  text-decoration: underline;
+
+  svg {
+    fill: #313131;
+  }
 `;
 
 const SpanWrapper = styled.div`
@@ -199,7 +208,7 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
-  
+
   @media only screen and (max-width: 500px) {
     gap: 0;
   }
