@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient, imageMotion, Icon } from "./sharedStyles";
+import { Wrapper, Card, Gradient, imageMotion, Icon } from "../sharedStyles";
 import { motion } from "framer-motion";
-import FavoritesContext from "../FavoritesContext";
+import FavoritesContext from "../../FavoritesContext";
 import { useContext } from "react";
 import { GrFavorite } from "react-icons/gr";
-import isItemInFavorites from "../helpers/isItemInFavorites";
+import isItemInFavorites from "../../helpers/isItemInFavorites";
 
-function Veggie({ veggie, isLoading }) {
+function HomeCard({food, isLoading, title}) {
   const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   return (
     <Wrapper>
       {!isLoading && (
         <>
-          <h2>Vegetarian</h2>
+          <h2>{title}</h2>
           <Splide
             options={{
               perPage: 4,
@@ -36,7 +36,7 @@ function Veggie({ veggie, isLoading }) {
               },
             }}
           >
-            {veggie.map((recipe) => {
+            {food.map((recipe) => {
               return (
                 <SplideSlide key={recipe.id}>
                   <Card whileHover="hover" initial="rest" animate="rest">
@@ -66,7 +66,7 @@ function Veggie({ veggie, isLoading }) {
         </>
       )}
     </Wrapper>
-  );
+  )
 }
 
-export default Veggie;
+export default HomeCard

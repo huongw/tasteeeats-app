@@ -5,20 +5,20 @@ import {
   Flex,
   MotionDiv,
   Trash,
-} from "./sharedStyles";
+} from "../sharedStyles";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import FavoritesContext from "../FavoritesContext";
+import FavoritesContext from "../../FavoritesContext";
 import { GiTrashCan } from "react-icons/gi";
 
 function Favorites() {
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
   const removeItem = (id) => {
-    const filtered = favorites.filter(item => item.id !== id)
-    setFavorites(filtered)
-  }
+    const filtered = favorites.filter((item) => item.id !== id);
+    setFavorites(filtered);
+  };
 
   return (
     <MotionDiv>

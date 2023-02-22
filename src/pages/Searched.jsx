@@ -1,27 +1,15 @@
-import { useEffect, useState, useContext } from "react";
-import FavoritesContext from "../FavoritesContext";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useParams } from "react-router-dom";
 import { Loader } from "./index";
-import {
-  Gradient,
-  Error,
-  imageMotion,
-  MotionDiv,
-  Flex,
-  Card2,
-  Icon,
-} from "../components/sharedStyles";
-import { GrFavorite } from "react-icons/gr";
-import isItemInFavorites from "../helpers/isItemInFavorites";
+import { Error, MotionDiv } from "../components/sharedStyles";
+import Card from "../components/Cuisine/Card";
 
 function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const paramSearch = params.search.split("+").join(" ");
-  const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     axios
@@ -59,41 +47,7 @@ function Searched({ error, setError }) {
             ) : (
               <>
                 <h2>Search Results: {paramSearch}</h2>
-                <Flex>
-                  {searches.map((cuisine) => {
-                    return (
-                      <Card2
-                        key={cuisine.id}
-                        whileHover="hover"
-                        initial="rest"
-                        animate="rest"
-                      >
-                        <Icon
-                          onClick={() => {
-                            if (!isItemInFavorites(cuisine.id, favorites)) {
-                              addToFavorites(
-                                cuisine.id,
-                                cuisine.title,
-                                cuisine.image
-                              );
-                            }
-                          }}
-                        >
-                          <GrFavorite />
-                        </Icon>
-                        <Link to={`/recipe/${cuisine.id}`}>
-                          <p>{cuisine.title}</p>
-                          <motion.img
-                            src={cuisine.image}
-                            alt={cuisine.title}
-                            variants={imageMotion}
-                          />
-                          <Gradient />
-                        </Link>
-                      </Card2>
-                    );
-                  })}
-                </Flex>
+                <Card cuisines={searches} />
               </>
             )}
           </>

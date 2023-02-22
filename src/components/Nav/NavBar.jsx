@@ -1,8 +1,8 @@
 import { GiKnifeFork } from "react-icons/gi";
 import { MdFavorite } from "react-icons/md";
-import { Nav, Logo, Cart } from "./sharedStyles";
-import { SearchBar } from "../pages";
-import FavoritesContext from "../FavoritesContext";
+import { Nav, Logo, Cart } from "../sharedStyles";
+import { SearchBar } from "../../pages";
+import FavoritesContext from "../../FavoritesContext";
 import { useContext } from "react";
 
 function NavBar() {

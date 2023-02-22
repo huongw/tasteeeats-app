@@ -1,42 +1,39 @@
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Wrapper, Card, Gradient, imageMotion, Icon } from "./sharedStyles";
+import { Wrapper, Card, Gradient, imageMotion2, Icon } from "../sharedStyles";
 import { motion } from "framer-motion";
-import FavoritesContext from "../FavoritesContext";
+import FavoritesContext from "../../FavoritesContext";
 import { useContext } from "react";
 import { GrFavorite } from "react-icons/gr";
-import isItemInFavorites from "../helpers/isItemInFavorites";
+import isItemInFavorites from "../../helpers/isItemInFavorites";
 
-function Desserts({ desserts, isLoading }) {
+function MostPopular({ popular, isLoading }) {
   const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   return (
     <Wrapper>
       {!isLoading && (
         <>
-          <h2>Desserts</h2>
+          <h2>Most Popular</h2>
           <Splide
             options={{
-              perPage: 4,
+              perPage: 3,
               arrows: true,
               pagination: false,
               drag: "free",
               gap: "1em",
               breakpoints: {
                 1050: {
-                  perPage: 3,
-                },
-                800: {
                   perPage: 2,
                 },
-                600: {
+                520: {
                   perPage: 1,
                 },
               },
             }}
           >
-            {desserts.map((recipe) => {
+            {popular.map((recipe) => {
               return (
                 <SplideSlide key={recipe.id}>
                   <Card whileHover="hover" initial="rest" animate="rest">
@@ -54,7 +51,7 @@ function Desserts({ desserts, isLoading }) {
                       <motion.img
                         src={recipe.image}
                         alt={recipe.title}
-                        variants={imageMotion}
+                        variants={imageMotion2}
                       />
                       <Gradient />
                     </Link>
@@ -69,4 +66,4 @@ function Desserts({ desserts, isLoading }) {
   );
 }
 
-export default Desserts;
+export default MostPopular;
