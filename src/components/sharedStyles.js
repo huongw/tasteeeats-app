@@ -95,9 +95,9 @@ export const Nav = styled.div`
   margin: auto;
   position: relative;
 
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 900px) {
     justify-content: center;
-    gap: 1em;
+    gap: .5em;
   }
 `;
 
@@ -139,7 +139,7 @@ export const Logo = styled(Link)`
   font-weight: 400;
   font-family: "Lobster Two", cursive;
 
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 900px) {
     position: absolute;
     left: 50%;
     top: 0;

@@ -160,10 +160,10 @@ const BackButton = styled.button`
   outline: 0;
   border: 0;
   cursor: pointer;
-  text-align: center;
   margin: 1em auto;
   color: #313131;
   display: flex;
+  justify-content: center;
   align-items: center;
   font-size: 1em;
   text-decoration: underline;
