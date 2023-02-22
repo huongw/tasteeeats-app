@@ -109,11 +109,14 @@ export const Cart = styled(Link)`
     transform: translateY(-100%);
     margin-bottom: 2px;
     position: absolute;
+    top: 0;
+    left: 0;
     transform: translate(-20%, -100%);
   }
 
   @media only screen and (max-width: 900px) {
     right: 5%;
+
     p {
       font-size: 0;
     }
