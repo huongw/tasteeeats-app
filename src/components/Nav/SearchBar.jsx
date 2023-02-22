@@ -10,9 +10,7 @@ function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!value) {
-      return;
-    }
+    if (!value) return;
 
     navigateToPage(`searched/${value.split(" ").join("+")}`);
     setValue("");
