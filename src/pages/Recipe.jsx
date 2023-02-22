@@ -233,6 +233,10 @@ const ImgWrapper = styled.div`
 const Info = styled.div`
   margin: 1rem 0;
 
+  p {
+    margin: 1em 0;
+  }
+
   li {
     margin: 0.5rem 0;
     list-style: none;
