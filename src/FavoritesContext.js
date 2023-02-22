@@ -19,8 +19,8 @@ export function FavoritesProvider({ children }) {
     }
   }, []);
 
-  const addToFavorites = (id, title, image) => {
-    setFavorites((prev) => [...prev, { id, title, image }]);
+  const addToFavorites = (id, title, image, heart) => {
+    setFavorites((prev) => [...prev, { id, title, image, heart }]);
   };
 
   return (

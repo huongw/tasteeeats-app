@@ -216,10 +216,11 @@ export const Icon = styled.button`
     height: 100%;
 
     path {
-      fill: #fff;
       stroke: #000;
+      fill: ${(props) => (props.active ? "red" : "#fff")};
     }
   }
+
 `;
 
 export const Trash = styled(Icon)`
