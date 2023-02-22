@@ -18,6 +18,7 @@ function NavBar() {
       <Cart to={"/favorites"}>
         <MdFavorite />
         <span>{favorites.length}</span>
+        <p>Favorites</p>
       </Cart>
     </Nav>
   );

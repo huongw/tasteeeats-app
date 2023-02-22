@@ -105,8 +105,18 @@ export const Cart = styled(Link)`
     height: 35px;
   }
 
+  p {
+    transform: translateY(-100%);
+    margin-bottom: 2px;
+    position: absolute;
+    transform: translate(-20%, -100%);
+  }
+
   @media only screen and (max-width: 900px) {
     right: 5%;
+    p {
+      font-size: 0;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -220,7 +230,6 @@ export const Icon = styled.button`
       fill: ${(props) => (props.active ? "red" : "#fff")};
     }
   }
-
 `;
 
 export const Trash = styled(Icon)`
