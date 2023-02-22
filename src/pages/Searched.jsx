@@ -11,15 +11,17 @@ import {
   MotionDiv,
   Flex,
   Card2,
-  Heart
+  Heart,
 } from "../components/sharedStyles";
+import { GrFavorite } from "react-icons/gr";
+import isItemInFavorites from "../helpers/isItemInFavorites";
 
 function Searched({ error, setError }) {
   const [searches, setSearches] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const paramSearch = params.search.split("+").join(" ");
-  const { addToFavorites } = useContext(FavoritesContext);
+  const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     axios
@@ -67,14 +69,18 @@ function Searched({ error, setError }) {
                         animate="rest"
                       >
                         <Heart
-                          onClick={() =>
-                            addToFavorites(
-                              cuisine.id,
-                              cuisine.title,
-                              cuisine.image
-                            )
-                          }
-                        />
+                          onClick={() => {
+                            if (!isItemInFavorites(cuisine.id, favorites)) {
+                              addToFavorites(
+                                cuisine.id,
+                                cuisine.title,
+                                cuisine.image
+                              );
+                            }
+                          }}
+                        >
+                          <GrFavorite />
+                        </Heart>
                         <Link to={`/recipe/${cuisine.id}`}>
                           <p>{cuisine.title}</p>
                           <motion.img

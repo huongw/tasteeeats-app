@@ -5,9 +5,11 @@ import { Wrapper, Card, Gradient, imageMotion, Heart } from "./sharedStyles";
 import { motion } from "framer-motion";
 import FavoritesContext from "../FavoritesContext";
 import { useContext } from "react";
+import { GrFavorite } from "react-icons/gr";
+import isItemInFavorites from "../helpers/isItemInFavorites";
 
 function Veggie({ veggie, isLoading }) {
-  const { addToFavorites } = useContext(FavoritesContext);
+  const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   return (
     <Wrapper>
@@ -39,10 +41,14 @@ function Veggie({ veggie, isLoading }) {
                 <SplideSlide key={recipe.id}>
                   <Card whileHover="hover" initial="rest" animate="rest">
                     <Heart
-                      onClick={() =>
-                        addToFavorites(recipe.id, recipe.title, recipe.image)
-                      }
-                    />
+                      onClick={() => {
+                        if (!isItemInFavorites(recipe.id, favorites)) {
+                          addToFavorites(recipe.id, recipe.title, recipe.image);
+                        }
+                      }}
+                    >
+                      <GrFavorite />
+                    </Heart>
                     <Link to={`/recipe/${recipe.id}`}>
                       <p>{recipe.title}</p>
                       <motion.img

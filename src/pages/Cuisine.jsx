@@ -13,13 +13,15 @@ import {
   Card2,
   Heart,
 } from "../components/sharedStyles";
+import { GrFavorite } from "react-icons/gr";
+import isItemInFavorites from "../helpers/isItemInFavorites";
 
 function Cuisine({ error, setError }) {
   const [cuisines, setCuisines] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
 
-  const { addToFavorites } = useContext(FavoritesContext);
+  const { favorites, addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     axios
@@ -62,10 +64,18 @@ function Cuisine({ error, setError }) {
                   animate="rest"
                 >
                   <Heart
-                    onClick={() =>
-                      addToFavorites(cuisine.id, cuisine.title, cuisine.image)
-                    }
-                  />
+                    onClick={() => {
+                      if (!isItemInFavorites(cuisine.id, favorites)) {
+                        addToFavorites(
+                          cuisine.id,
+                          cuisine.title,
+                          cuisine.image
+                        );
+                      }
+                    }}
+                  >
+                    <GrFavorite />
+                  </Heart>
                   <Link to={`/recipe/${cuisine.id}`}>
                     <p>{cuisine.title}</p>
                     <motion.img

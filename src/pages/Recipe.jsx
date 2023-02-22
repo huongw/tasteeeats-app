@@ -26,7 +26,6 @@ function Recipe() {
         }
       )
       .then((res) => {
-        localStorage.setItem("recipe", JSON.stringify(res.data));
         setRecipe(res.data);
       })
       .catch((err) => console.error(err))

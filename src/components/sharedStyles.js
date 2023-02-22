@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GrFavorite } from "react-icons/gr";
 
 export const Wrapper = styled.div`
   margin: 2rem auto;
@@ -167,7 +166,7 @@ export const Card2 = styled(motion.div)`
   }
 `;
 
-export const Heart = styled(GrFavorite)`
+export const Heart = styled.button`
   position: absolute;
   top: 0;
   left: 0;
