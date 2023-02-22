@@ -17,9 +17,9 @@ function NavBar() {
       </Logo>
       <SearchBar />
       <Link to={"/favorites"}>
-      <MdFavorite />
+        <MdFavorite />
+        <span>{favorites.length}</span>
       </Link>
-      <span>{favorites.length}</span>
     </Nav>
   );
 }

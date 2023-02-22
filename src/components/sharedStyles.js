@@ -169,6 +169,22 @@ export const Card2 = styled(motion.div)`
 export const Heart = styled.button`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 9;
-`
+  outline: 0;
+  border: 0;
+  background: none;
+  width: 25px;
+  height: 25px;
+  margin: 10px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: #fff;
+      stroke: #000;
+    }
+  }
+`;

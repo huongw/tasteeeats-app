@@ -1,19 +1,11 @@
 import { Card2, Gradient, imageMotion, Flex, MotionDiv } from "./sharedStyles";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import FavoritesContext from "../FavoritesContext";
 
 function Favorites() {
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-
-  useEffect(() => {
-    const favoriteItems = localStorage.getItem("favorites");
-
-    if (favoriteItems) {
-      setFavorites(JSON.parse(favoriteItems));
-    }
-  }, []);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
     <MotionDiv>

@@ -11,13 +11,21 @@ export function FavoritesProvider({ children }) {
     }
   }, [favorites]);
 
+  useEffect(() => {
+    const favoriteItems = localStorage.getItem("favorites");
+
+    if (favoriteItems) {
+      setFavorites(JSON.parse(favoriteItems));
+    }
+  }, []);
+
   const addToFavorites = (id, title, image) => {
     setFavorites((prev) => [...prev, { id, title, image }]);
   };
 
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addToFavorites, setFavorites }}
+      value={{ favorites, addToFavorites }}
     >
       {children}
     </FavoritesContext.Provider>
