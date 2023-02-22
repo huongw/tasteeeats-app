@@ -1,7 +1,6 @@
 import { Gradient, imageMotion, Flex, Card2 } from "../sharedStyles";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import FavoriteIcon from "../FavoriteIcon/FavoriteIcon";
 
 function Card({ cuisines }) {
   return (
