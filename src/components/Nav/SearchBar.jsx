@@ -10,8 +10,7 @@ function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!value || /[^a-zA-Z]+/.test(value)) {
-      setValue("");
+    if (!value) {
       return;
     }
 
