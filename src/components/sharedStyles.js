@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.div`
-  margin: 2rem auto;
+  margin: .5rem auto;
   width: 90%;
 
   h2 {
@@ -82,7 +82,8 @@ export const Gradient = styled.div`
 export const Container = styled.div`
   width: 95vw;
   max-width: 1600px;
-  margin: auto;
+  margin: 0 auto;
+  padding-bottom: 1rem;
   min-height: 100vh;
   background-color: #efefef;
 `;
@@ -92,7 +93,6 @@ export const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: auto;
   position: relative;
 
   @media only screen and (max-width: 900px) {
@@ -153,7 +153,7 @@ export const MotionDiv = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
   width: 90%;
 
   h2 {
@@ -182,10 +182,10 @@ export const Card2 = styled(motion.div)`
     width: 70%;
   }
   @media only screen and (max-width: 600px) {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     width: 90%;
   }
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 500px) {
     width: 100%;
   }
 
