@@ -9,6 +9,7 @@ import { TfiTimer } from "react-icons/tfi";
 import { GiGrain } from "react-icons/gi";
 import FavoriteIcon from "../components/FavoriteIcon/FavoriteIcon";
 import { BiArrowBack } from "react-icons/bi";
+import DOMPurify from "dompurify";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
@@ -93,11 +94,13 @@ function Recipe() {
                   {active === "instructions" && (
                     <>
                       <p
-                        dangerouslySetInnerHTML={{ __html: recipe.summary }}
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(recipe.summary),
+                        }}
                       ></p>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: recipe.instructions,
+                          __html: DOMPurify.sanitize(recipe.instructions),
                         }}
                       ></div>
                     </>
