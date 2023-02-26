@@ -66,7 +66,7 @@ function Recipe() {
                   <span>
                     {recipe.glutenFree && (
                       <>
-                        <GiGrain /> {recipe.glutenFree} Gluten Free
+                        <GiGrain />{recipe.glutenFree} Gluten Free
                       </>
                     )}
                   </span>
@@ -131,6 +131,7 @@ const MotionDiv = styled(motion.div)`
   width: 90%;
   max-width: 1500px;
   margin: auto;
+  white-space: pre-wrap;
 
   h2 {
     width: 80%;
