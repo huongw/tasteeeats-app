@@ -131,6 +131,7 @@ const MotionDiv = styled(motion.div)`
   width: 90%;
   max-width: 1500px;
   margin: auto;
+  white-space: pre-wrap;
 
   h2 {
     width: 80%;
@@ -197,7 +198,6 @@ const Flex = styled.div`
 
 const Card = styled.div`
   width: 80%;
-  white-space: pre-wrap;
 
   @media only screen and (max-width: 600px) {
     width: 100%;
