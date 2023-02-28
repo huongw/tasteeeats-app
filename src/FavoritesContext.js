@@ -6,7 +6,7 @@ export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    if (favorites.length > 0) {
+    if (favorites.length >= 0) {
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }, [favorites]);
