@@ -13,12 +13,7 @@ import FavoritesContext from "../../FavoritesContext";
 import { GiTrashCan } from "react-icons/gi";
 
 function Favorites() {
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-
-  const removeItem = (id) => {
-    const filtered = favorites.filter((item) => item.id !== id);
-    setFavorites(filtered);
-  };
+  const { favorites, removeFavorite } = useContext(FavoritesContext);
 
   return (
     <MotionDiv>
@@ -41,7 +36,7 @@ function Favorites() {
                 />
                 <Gradient />
               </Link>
-              <Trash onClick={() => removeItem(item.id)}>
+              <Trash onClick={() => removeFavorite(item.id)}>
                 <GiTrashCan />
               </Trash>
             </Card2>
